@@ -4,21 +4,17 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="p-5">
-      <header className="relative  mx-auto   max-w-[1400px] rounded-[24px] p-[0.7rem] mt-8 shadow-sm bg-gradient-to-r from-[#66B29B] to-[#042222]">
+    <div className="p-5 relative">
+      <header
+        className={`relative mx-auto max-w-[1400px] rounded-t-[24px] ${
+          isMobileMenuOpen ? " rounded-b-[0px] " : " rounded-b-[24px] "
+        } p-[0.7rem] mt-8 shadow-sm bg-gradient-to-r from-[#66B29B] to-[#042222]`}
+      >
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0 flex items-center">
@@ -37,7 +33,7 @@ const Header = () => {
                 <li>
                   <Link
                     href={`/About`}
-                    className=" px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                    className="px-3 py-2 rounded-md text-sm font-medium transition-colors"
                   >
                     About
                   </Link>
@@ -45,7 +41,7 @@ const Header = () => {
                 <li>
                   <Link
                     href={`/ourapproach`}
-                    className=" px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                    className="px-3 py-2 rounded-md text-sm font-medium transition-colors"
                   >
                     Our Approach
                   </Link>
@@ -53,7 +49,7 @@ const Header = () => {
                 <li>
                   <Link
                     href={`/About`}
-                    className=" px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                    className="px-3 py-2 rounded-md text-sm font-medium transition-colors"
                   >
                     For Health Care Providers
                   </Link>
@@ -65,59 +61,74 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
+
             <div className="md:hidden">
-              <Drawer
-                open={isMobileMenuOpen}
-                onOpenChange={setIsMobileMenuOpen}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="focus:outline-none"
               >
-                <DrawerTrigger asChild>
-                  {isMobileMenuOpen ? (
-                    <X className="text-white w-[34px] h-[34px]" />
-                  ) : (
-                    <Menu className="text-white w-[34px] h-[34px]" />
-                  )}
-                </DrawerTrigger>
-                <DrawerContent>
-                  <DrawerHeader>
-                    <DrawerTitle>Navigation</DrawerTitle>
-                  </DrawerHeader>
-                  <div className="grid gap-4 p-4">
-                    <DrawerClose asChild>
-                      <Link
-                        href={`/About`}
-                        className="block w-full p-2 text-center hover:text-[#042222]"
-                      >
-                        About
-                      </Link>
-                    </DrawerClose>
-                    <DrawerClose asChild>
-                      <Link
-                        href="/ourapproach"
-                        className="block w-full p-2 text-center hover:bg-[#042222]"
-                      >
-                        Our Approach
-                      </Link>
-                    </DrawerClose>
-                    <DrawerClose asChild>
-                      <Link
-                        href="/ourapproach"
-                        className="block w-full p-2 text-center hover:bg-[#042222]"
-                      >
-                        For Health Care Providers
-                      </Link>
-                    </DrawerClose>
-                    <DrawerClose asChild>
-                      <Button className="bg-gradient-to-b from-[#BFD8B3] to-[#339465]">
-                        Check Your Medication
-                      </Button>
-                    </DrawerClose>
-                  </div>
-                </DrawerContent>
-              </Drawer>
+                {isMobileMenuOpen ? (
+                  <X className="text-white w-[34px] h-[34px]" />
+                ) : (
+                  <Menu className="text-white w-[34px] h-[34px]" />
+                )}
+              </button>
             </div>
           </div>
         </div>
       </header>
+
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden absolute left-5 right-5 top-[138px] z-50 bg-gradient-to-r from-[#66B29B] to-[#042222] shadow-lg rounded-b-[24px]"
+          style={{
+            animation: "slideDown 0.3s ease-out",
+          }}
+        >
+          <div className="container mx-auto px-6 py-6 space-y-4">
+            <Link
+              href={`/About`}
+              className="block w-full  text-white py-2 hover:bg-opacity-80 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              href={`/ourapproach`}
+              className="block w-full  text-white py-2 hover:bg-opacity-80 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Our Approach
+            </Link>
+            <Link
+              href={`/About`}
+              className="block w-full  text-white py-2 hover:bg-opacity-80 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              For Health Care Providers
+            </Link>
+            <Button
+              className="w-full bg-gradient-to-b from-[#BFD8B3] to-[#339465]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Check Your Medication
+            </Button>
+          </div>
+        </div>
+      )}
+
+      <style jsx global>{`
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 };

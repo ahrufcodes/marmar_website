@@ -67,6 +67,21 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        <div
+          className="h-[1px] w-full bg-gradient-to-r mt-7"
+          style={{
+            background:
+              "linear-gradient(to right, #000000 0%, #EEEFF0 50%, #EFEFF1 100%)",
+          }}
+        ></div>
+        <div className="flex flex-col gap-4 md:flex-row justify-between mt-[2rem] mb-14">
+          <h2 className="text-[#909090] text-sm">© 2024 Marmar </h2>
+          <h2 className="text-[#909090] text-sm">
+            Registered at Camburgh House, 27 New Dover Road, Canterbury, CT1
+            3DN, England{" "}
+          </h2>
+        </div>
       </div>
     </>
   );
