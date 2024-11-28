@@ -5,7 +5,7 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <>
-      <div className="space-y-6 mt-4 md:flex justify-between  items-center">
+      <div className="space-y-6 mt-4 md:flex justify-between px-10  items-center">
         <div className="text-center md:text-left max-w-[700px]">
           <h1 className="text-[#131313]  font-semibold  text-[1.5rem] md:text-[2.5rem] lg:mt-[-5rem]">
             Peace of Mind with Every Prescription
