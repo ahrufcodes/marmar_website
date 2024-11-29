@@ -4,6 +4,7 @@ import Faq from "@/components/sections/Faq";
 import EmpoweringSection from "@/components/sections/EmpoweringSection";
 import Testimonials from "@/components/sections/Testimonials";
 import OurOfferings from "@/components/sections/OurOfferings";
+import Reveal from "@/components/util/Reveal";
 
 const page = () => {
   return (

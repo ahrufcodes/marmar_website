@@ -1,7 +1,65 @@
-import React from "react";
+"use client";
+import React, { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 const Testimonials = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+  const slideControls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      slideControls.start("visible");
+    }
+  }, [isInView]);
+
+  const textVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const imageVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.9,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const buttonVariants = {
+    hidden: {
+      opacity: 0,
+      x: -50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        delay: 0.4,
+        ease: "easeOut",
+      },
+    },
+  };
+
   const testimonials = [
     {
       testimonial:
@@ -27,43 +85,86 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="container mx-auto  py-16">
-      <div className="space-y-8">
-        <div className="text-center ">
-          <Button className="bg-[#2CC295] hover:bg-[#25a07c] rounded-full px-8 py-2 mb-4 transition-colors duration-300">
-            Testimonials
-          </Button>
-          <h1 className="text-[#131313] font-semibold text-2xl md:text-3xl">
-            Don't take our word for it
-          </h1>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((item, index) => (
-            <div
-              key={index}
-              className={`${item.bgColor} rounded-3xl p-6 h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+    <div ref={ref}>
+      <motion.section
+        variants={{
+          hidden: { left: 0 },
+          visible: { left: "100%" },
+        }}
+        initial="hidden"
+        animate={slideControls}
+        transition={{ duration: 0.5, ease: "easeIn" }}
+        className="container mx-auto py-16"
+      >
+        <div className="space-y-8">
+          <div className="text-center">
+            <motion.div
+              variants={buttonVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
             >
-              <div className="flex flex-col justify-between h-full min-h-[320px]">
-                <div>
-                  <p className="text-[#FEFFF1] font-medium text-lg leading-relaxed">
-                    "{item.testimonial}"
-                  </p>
+              <Button className="bg-[#2CC295] hover:bg-[#25a07c] rounded-full px-8 py-2 mb-4 transition-colors duration-300">
+                Testimonials
+              </Button>
+            </motion.div>
+            <motion.h1
+              variants={textVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="text-[#131313] font-semibold text-2xl md:text-3xl"
+            >
+              Don't take our word for it
+            </motion.h1>
+          </div>
+
+          <motion.div
+            variants={imageVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {testimonials.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={imageVariants}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.2,
+                }}
+                className={`${item.bgColor} rounded-3xl p-6 h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+              >
+                <div className="flex flex-col justify-between h-full min-h-[320px]">
+                  <div>
+                    <motion.p
+                      variants={textVariants}
+                      className="text-[#FEFFF1] font-medium text-lg leading-relaxed"
+                    >
+                      "{item.testimonial}"
+                    </motion.p>
+                  </div>
+                  <div className="mt-6">
+                    <motion.p
+                      variants={textVariants}
+                      className="text-[#FEFFF1] font-bold text-[1.1rem] mb-1"
+                    >
+                      {item.author}
+                    </motion.p>
+                    <motion.p
+                      variants={textVariants}
+                      className="text-[#042222] font-semibold text-xl"
+                    >
+                      {item.jobDescription}
+                    </motion.p>
+                  </div>
                 </div>
-                <div className="mt-6">
-                  <p className="text-[#FEFFF1] font-bold text-[1.1rem] mb-1">
-                    {item.author}
-                  </p>
-                  <p className="text-[#042222] font-semibold text-xl">
-                    {item.jobDescription}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-      </div>
-    </section>
+      </motion.section>
+    </div>
   );
 };
 
