@@ -1,175 +1,209 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { motion, useInView } from "framer-motion";
 
 const GetStartedToday = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false });
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+  const [animationRunning, setAnimationRunning] = useState<boolean>(false);
+  const componentRef = useRef<HTMLDivElement>(null);
+  const lastScrollYRef = useRef<number>(window.scrollY);
+  const animationTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const previousDirectionRef = useRef<string | null>(null);
+
+  const scrollLocked = useRef(false)
 
   const cardItems = [
-    {
-      number: 1,
-      title: "Medication Details",
-      description:
-        "Enter your current medications and supplements. Our AI understands even complex combinations, ensuring nothing is missed in your analysis.",
-    },
-    {
-      number: 2,
-      title: "Instant Analysis",
-      description:
-        "Our AI immediately processes your medication list, checking for potential interactions and important considerations.",
-    },
-    {
-      number: 3,
-      title: "Clear Results",
-      description:
-        "Receive easy-to-understand insights about your medications, with important information highlighted for your attention.",
-    },
-    {
-      number: 4,
-      title: "Clear Results",
-      description:
-        "Receive easy-to-understand insights about your medications, with important information highlighted for your attention.",
-    },
+    { number: 1, title: "Medication Details", description: "Enter your current medications and supplements. Our AI understands even complex combinations, ensuring nothing is missed in your analysis." },
+    { number: 2, title: "Instant Analysis", description: "Our AI immediately processes your medication list, checking for potential interactions and important considerations." },
+    { number: 3, title: "Personalized Insights", description: "Receive clear, easy-to-understand insights about your medications, with important highlights for your attention." },
+    { number: 4, title: "Safer Medication Use", description: "Get a personalized medication safety profile, empowering you to take the right steps for better health." },
   ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
+  const disableScroll = () => {
+    document.body.style.overflow = "hidden";
+    scrollLocked.current = true;
   };
 
-  const itemVariants = {
-    hidden: {
-      y: 50,
-      opacity: 0,
-      scale: 0.9,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20,
-      },
-    },
-    hover: {
-      scale: 1.05,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-      },
-    },
+
+  const enableScroll = () => {
+    document.body.style.overflow = "auto";
+    scrollLocked.current = false;
   };
+
+
+  const clearAnimationTimer = () => {
+    if (animationTimerRef.current) {
+      clearInterval(animationTimerRef.current);
+      animationTimerRef.current = null;
+    }
+  };
+
+  // Handle forward animation (1 to 4)
+  const runForwardAnimation = () => {
+    clearAnimationTimer();
+    setActiveStep(0);
+    disableScroll();
+    let step = 0;
+    
+    animationTimerRef.current = setInterval(() => {
+      if (step < cardItems.length - 1) {
+        setActiveStep((prev) => (prev !== null ? prev + 1 : 1));
+        step++;
+      } else {
+        clearAnimationTimer();
+        setAnimationRunning(false);
+        enableScroll();
+      }
+    }, 700);
+    
+    previousDirectionRef.current = "down";
+  };
+
+  const runBackwardAnimation = () => {
+    clearAnimationTimer();
+    setActiveStep(cardItems.length - 1);
+    disableScroll();
+    let step = cardItems.length - 1;
+    
+    animationTimerRef.current = setInterval(() => {
+      if (step > 0) {
+        setActiveStep((prev) => (prev !== null ? prev - 1 : 0));
+        step--;
+      } else {
+        clearAnimationTimer();
+        setAnimationRunning(false);
+        enableScroll();
+      }
+    }, 700);
+    
+    previousDirectionRef.current = "up";
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        const currentScrollY = window.scrollY;
+        const scrollDirection = currentScrollY > lastScrollYRef.current ? "down" : "up";
+        lastScrollYRef.current = currentScrollY;
+  
+        if (entry.intersectionRatio >= 0.9 && !animationRunning) {
+          setAnimationRunning(true);
+          disableScroll();
+  
+          if (scrollDirection === "down" && previousDirectionRef.current !== "down") {
+            runForwardAnimation();
+          } else if (scrollDirection === "up" && previousDirectionRef.current !== "up") {
+            runBackwardAnimation();
+          }
+        } else if (entry.intersectionRatio < 0.9) { 
+          clearAnimationTimer();
+          setAnimationRunning(false);
+          enableScroll();
+        }
+      },
+      { threshold: 0.9 } 
+    );
+  
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+  
+    return () => {
+      observer.disconnect();
+      clearAnimationTimer();
+      enableScroll();
+    };
+  }, [cardItems.length]);
+  
 
   return (
-    <>
-      <div ref={ref}>
-        <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={containerVariants}
-          className="overflow-hidden"
-        >
-          <motion.div
-            variants={itemVariants}
-            className="mt-[3rem] space-y-4 text-center mb-8 md:text-left"
-          >
-            <motion.div variants={itemVariants}>
-              <Button className="bg-[#2CC295] rounded-[27px] w-[206px]">
-                Get Started Today
-              </Button>
-            </motion.div>
-            <motion.h1
-              variants={itemVariants}
-              className="text-[#131313] font-semibold text-[2rem] max-w-[372px]"
-            >
-              Medication Analysis Made Crystal Clear
-            </motion.h1>
-            <motion.p variants={itemVariants} className="text-[#606060] m-0">
-              From complex interactions to clear insights in seconds, powered by
-              advanced AI.
-            </motion.p>
+    <div ref={ref}>
+      <motion.div
+        ref={componentRef}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="overflow-hidden max-w-[1400px] h-full px-5 mx-auto mb-[2rem]"
+      >
+        <motion.div className="mt-12 space-y-4 text-center mb-8 md:text-left">
+          <motion.div>
+            <Button className="bg-[#2CC295] rounded-full text-xs md:text-md">
+              Get your Comprehensive Medication Analysis in Seconds
+            </Button>
           </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            className="grid md:grid-cols-3 md:hidden"
-          >
-            {cardItems.map((item, index) => (
-              <motion.div
-                variants={itemVariants}
-                whileHover="hover"
-                key={index}
-                className={`bg-[#E8F4F0] pt-8 pb-6  px-4  relative ${
-                  index === 0 ? "rounded-t-3xl" : ""
-                } ${
-                  index === cardItems.length - 1
-                    ? "rounded-b-3xl"
-                    : "border-b border-[#2CC295]"
-                }`}
-              >
-                <div className="flex flex-col items-center space-y-4">
-                  <div className="bg-white text-black rounded-full border-[4px] border-[#2CC295] w-12 h-12 flex items-center justify-center font-semibold">
-                    {item.number}
-                  </div>
-                  <h3 className="text-[#1C1C1C] font-semibold text-lg">
-                    {item.title}
-                  </h3>
-                  <p className="text-[#5E5E5E] text-center">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {cardItems.map((item, index) => (
-              <motion.div
-                variants={containerVariants}
-                whileHover="hover"
-                key={index}
-                className="group bg-white space-y-6 p-6 rounded-lg transition-colors duration-300"
-              >
-                <div className="flex flex-col space-y-4">
-                  <div
-                    className={`w-12 h-12 flex items-center justify-center font-semibold rounded-full border-[4px] transition-colors duration-300
-                ${
-                  index === 0
-                    ? "bg-[#2CC295] text-[white] border-[#66B29B]"
-                    : "text-black  group-hover:border bg-white group-hover:bg-[#2CC295] group-hover:text-[white] group-hover:border-[#66B29B]"
-                }`}
-                  >
-                    {item.number}
-                  </div>
-                  <h3
-                    className={`font-semibold text-lg transition-colors duration-300
-                ${
-                  index === 0
-                    ? "text-[#2CC295]"
-                    : "text-[#042222] group-hover:text-[#2CC295]"
-                }`}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-[#5E5E5E] group-hover:text-[#5E5E5E] transition-colors duration-300">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.h1 className="text-[#131313] font-bold md:text-2xl text-xl md:w-[500px]">
+            Four Simple Steps To Safer Medication Management
+          </motion.h1>
+          <motion.p className="text-[#5E5E5E] m-0 max-w-[550px]">
+            Our advanced AI transforms complex pharmacology into actionable insights, giving you a complete understanding of your medication safety profile without the medical jargon.
+          </motion.p>
         </motion.div>
-      </div>
-    </>
+        
+        {/* Mobile view */}
+        <motion.div
+          className="grid gap-6 md:grid-cols-3 md:hidden place-items-center bg-[#E8F4F0] px-4 py-8 rounded-[10px]"
+        >
+          {cardItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0.5, y: 30 }}
+              animate={
+                activeStep !== null && index <= activeStep
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0.5, y: 30 }
+              }
+              transition={{ duration: 0.5, delay: index * 0.3 }}
+              className="bg-[#ffff] pt-8 pb-6 px-4 relative shadow-md rounded-md"
+            >
+              <div className="flex flex-col items-start space-y-4">
+                <div
+                  className={`bg-white text-black rounded-full border-4 w-12 h-12 flex items-center justify-center font-semibold text-sm ${
+                    activeStep !== null && index <= activeStep ? "border-[#2CC29533]" : "border-gray-300"
+                  }`}
+                >
+                  {item.number}
+                </div>
+                <h3 className="text-[#1C1C1C] font-medium text-lg">
+                  {item.title}
+                </h3>
+                <p className="text-[#5E5E5E] text-left text-sm">{item.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Desktop view */}
+        <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {cardItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0.5, y: 30 }}
+              animate={
+                activeStep !== null && index <= activeStep
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0.5, y: 30 }
+              }
+              transition={{ duration: 0.5, delay: index * 0.3 }}
+              className="group space-y-6 p-6 rounded-lg transition-colors duration-300"
+            >
+              <div className="flex flex-col space-y-4">
+                <div className={`w-8 h-8 flex items-center justify-center font-bold rounded-full shadow-xl transition-colors duration-300   
+                ${activeStep !== null && index <= activeStep ? "bg-[#2CC295] text-white border-[#66B29B]" : "text-black bg-gray-300 border-gray-400"}`}>
+                  {item.number}
+                </div>
+                <h3 className={`font-bold text-lg transition-colors duration-300 
+                  ${activeStep !== null && index <= activeStep ? "text-[#2CC295]" : "text-gray-500"}`}>
+                  {item.title}
+                </h3>
+                <p className="text-[#5E5E5E]">{item.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const Header = () => {
       <header
         className={`relative mx-auto max-w-[1400px] rounded-t-[24px] ${
           isMobileMenuOpen ? " rounded-b-[0px] " : " rounded-b-[24px] "
-        } p-[0.7rem] mt-8 shadow-sm bg-gradient-to-r from-[#66B29B] to-[#042222]`}
+        } p-[0.7rem] bg-gradient-to-r from-[#66B29B] to-[#042222]  md:bg-none  shadow-sm md:shadow-none`}
       >
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -22,18 +22,27 @@ const Header = () => {
                 <Image
                   alt="logo"
                   src="assets/marmarlogo.svg"
+                  className="block md:hidden"
                   width={63}
                   height={43}
                 />
+                  <Image
+                  alt="logo"
+                  className="hidden md:block w-[8rem] h-[60px]"
+                  src="assets/LogoFull.svg"
+                  width={63}
+                  height={43}
+                />
+             
               </Link>
             </div>
 
             <nav className="hidden md:block">
-              <ul className="flex space-x-8 text-white items-center">
+              <ul className="flex space-x-8 text-[#000000] items-center">
                 <li>
                   <Link
                     href={`/About`}
-                    className="px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                    className="px-3 py-2 rounded-md text-sm font-medium transition-colors "
                   >
                     About
                   </Link>
@@ -43,7 +52,7 @@ const Header = () => {
                     href={`/ourapproach`}
                     className="px-3 py-2 rounded-md text-sm font-medium transition-colors"
                   >
-                    Our Approach
+                    Insurance Company
                   </Link>
                 </li>
                 <li>
@@ -55,8 +64,9 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Button className="bg-gradient-to-b from-[#BFD8B3] to-[#339465]">
-                    Check Your Medication
+                  <Button className="bg-[#2CC295]">
+                    
+                    Check Your Medication Now
                   </Button>
                 </li>
               </ul>
@@ -80,7 +90,7 @@ const Header = () => {
 
       {isMobileMenuOpen && (
         <div
-          className="md:hidden absolute left-5 right-5 top-[138px] z-50 bg-gradient-to-r from-[#66B29B] to-[#042222] shadow-lg rounded-b-[24px]"
+          className="md:hidden absolute left-5 right-5 top-[100px] z-50 bg-gradient-to-r from-[#66B29B] to-[#042222] shadow-lg rounded-b-[24px]"
           style={{
             animation: "slideDown 0.3s ease-out",
           }}
@@ -98,20 +108,20 @@ const Header = () => {
               className="block w-full  text-white py-2 hover:bg-opacity-80 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Our Approach
+                  Insurance Company
             </Link>
             <Link
               href={`/About`}
               className="block w-full  text-white py-2 hover:bg-opacity-80 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              For Health Care Providers
+               For Health Care Providers
             </Link>
             <Button
-              className="w-full bg-gradient-to-b from-[#BFD8B3] to-[#339465]"
+              className="w-full bg-gradient-to-b from-[#BFD8B3] to-[#339465] text-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Check Your Medication
+              Check Your Medication Now
             </Button>
           </div>
         </div>

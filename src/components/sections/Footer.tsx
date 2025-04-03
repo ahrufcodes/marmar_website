@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       <div
-        className="bg-[#042222] bg-cover bg-center bg-no-repeat p-4 text-center space-y-8 w-full flex flex-col justify-center items-center h-[432px]"
+        className="bg-gradient-to-r from-[#042222] to-[#66B29B]  bg-cover bg-center bg-no-repeat p-4 text-center space-y-8 w-full flex flex-col justify-center items-center h-[432px]"
         style={{ backgroundImage: "url('/assets/footerbg.svg')" }}
       >
         <h1 className="text-[2rem] text-white">

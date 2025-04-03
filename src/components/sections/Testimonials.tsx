@@ -94,7 +94,7 @@ const Testimonials = () => {
         initial="hidden"
         animate={slideControls}
         transition={{ duration: 0.5, ease: "easeIn" }}
-        className="container mx-auto py-16"
+        className="container mx-auto py-16 max-w-[1400px] h-full px-5 "
       >
         <div className="space-y-8">
           <div className="text-center">
@@ -103,7 +103,7 @@ const Testimonials = () => {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
             >
-              <Button className="bg-[#2CC295] hover:bg-[#25a07c] rounded-full px-8 py-2 mb-4 transition-colors duration-300">
+              <Button className="bg-[#2CC295] hover:bg-[#25a07c] rounded-full px-8 py-1 mb-4 transition-colors duration-300 textxs">
                 Testimonials
               </Button>
             </motion.div>
