@@ -185,7 +185,7 @@ const Faq = () => {
           className="bg-white md:p-6 md:border md:rounded-lg py-[2rem]"
         >
           <motion.div className="flex justify-between">
-            <Button className="bg-[#E3555A] text-white rounded-[27px] w-[206px]">
+            <Button className="bg-[#E3555A] text-white rounded-[27px] h-[29px] px-[4rem] font-bold">
               Interaction Risk Level: Severe
             </Button>
             <Upload className="cursor-pointer text-[#2CC295]" />
@@ -213,8 +213,8 @@ const Faq = () => {
                     item.isWarning
                       ? "bg-[#E3555A] text-white border-[#E3555A]"
                       : index < 4
-                      ? "bg-[#E8F4F0] border-[#E8F4F0] hover:text-[#2CC295] text-[#131313]"
-                      : "bg-white border-gray-200 hover:text-[#2CC295] text-[#131313]"
+                      ? "bg-[#E8F4F0] border-[#E8F4F0] text-[#131313]"
+                      : "bg-white border-gray-200  text-[#131313]"
                   }`}
                 >
                   <span>{item.question}</span>
@@ -242,14 +242,12 @@ const Faq = () => {
             ))}
           </div>
           
-          <div className="flex justify-between items-center mt-6">
-            <div className="flex gap-4 text-[#909090]">
-              <MoveLeft className="cursor-pointer transition-colors w-5 h-6" />
-              <RotateCcw className="cursor-pointer transition-colors w-5 h-6" />
-              <Share2 className="cursor-pointer transition-colors w-5 h-6" />
+          <div className="flex gap-4 items-center mt-6">
+            
+              <MoveLeft className="cursor-pointer transition-colors w-5 h-6 text-[#909090]" />
+              <RotateCcw className="cursor-pointer transition-colors w-5 h-6 text-[#909090]" />
+              <Share2 className="cursor-pointer transition-colors w-5 h-6 text-[#909090]" />
             </div>
-            <Download className="text-[#909090] cursor-pointer transition-colors w-5 h-6" />
-          </div>
         </motion.div>
       </motion.section>
     </div>

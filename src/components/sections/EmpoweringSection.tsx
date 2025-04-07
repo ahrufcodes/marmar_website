@@ -90,22 +90,22 @@ const EmpoweringSection = () => {
       >
         <motion.div
           variants={textVariants}
-          className="mt-12 space-y-4  mb-10 text-left w-full md:w-[640px]"
+          className="mt-12 space-y-4  mb-10 text-left w-full  "
         >
           <motion.div variants={textVariants}>
-            <Button className="bg-[#2CC295] hover:bg-[#25a07c] rounded-full px-6 py-2 text-sm font-medium transition-colors duration-300">
+            <Button className="bg-[#2CC295]  rounded-full px-6  h-[29px] text-sm font-medium transition-colors duration-300">
               FOR EHR COMPANIES
             </Button>
           </motion.div>
 
           <motion.h1
             variants={textVariants}
-            className="text-[#131313] font-semibold text-2xl md:text-3xl lg:text-4xl"
+            className="text-[#131313] font-medium text-2xl md:text-3xl md:w-[500px]"
           >
             Enhance Your EHR Platform with Medication Intelligence
           </motion.h1>
 
-          <motion.p variants={textVariants} className="text-[#606060] text-sm md:text-base m-0">
+          <motion.p variants={textVariants} className="text-[#606060] text-sm md:text-base m-0 md:w-[600px]">
             Integrate MARMAR's advanced medication analysis capabilities directly into your EHR system to provide unprecedented value to healthcare providers and their patients.
           </motion.p>
         </motion.div>
@@ -130,12 +130,12 @@ const EmpoweringSection = () => {
                     height={48}
                   />
               </div>
-              <h3 className="text-[#042222] font-medium text-lg mb-3">
-                {item.title}
-              </h3>
-              <p className="text-[#5E5E5E] text-start  text-sm">
-                {item.description}
-              </p>
+              <h3 className="text-[#042222] font-medium text-[20px] mb-3">
+                     {item.title}
+                   </h3>
+                   <p className="text-[#042222] text-start  text-[16px]">
+                     {item.description}
+                   </p>
             </motion.div>
           ))}
         </motion.div>
@@ -144,7 +144,7 @@ const EmpoweringSection = () => {
           variants={textVariants}
           className="mt-12 flex justify-start"
         >
-          <Button className="bg-[#E3555A] hover:bg-[#C8444F] text-white rounded-md px-6 py-3 h-auto flex items-center gap-2 transition-all duration-300 shadow-sm hover:shadow-md text-sm md:text-base">
+          <Button className="bg-[#E3555A] text-white rounded-sm shadow-md font-medium ">
             Schedule a Demo for EHR Integration
             <ChevronRight className="w-5 h-5" />
           </Button>

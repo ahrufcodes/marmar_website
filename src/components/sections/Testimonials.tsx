@@ -103,7 +103,7 @@ const Testimonials = () => {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
             >
-              <Button className="bg-[#2CC295] hover:bg-[#25a07c] rounded-full px-8 py-1 mb-4 transition-colors duration-300 textxs">
+              <Button className="bg-[#2CC295] hover:bg-[#25a07c] rounded-full px-8 h-[29px] mb-4 transition-colors duration-300 textxs">
                 Testimonials
               </Button>
             </motion.div>

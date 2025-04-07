@@ -63,7 +63,7 @@ const OurOfferings = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <Button className="bg-[#2CC295] hover:bg-[#25a07c] rounded-full px-8 py-1 text-xs mb-4 transition-colors duration-300">
+          <Button className="bg-[#2CC295]  rounded-full px-8 h-[29px] text-xs mb-4 transition-colors duration-300">
             OUR OFFERING
           </Button>
         </motion.div>
@@ -71,15 +71,14 @@ const OurOfferings = () => {
           variants={textVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-[#131313] font-500 text-2xl md:text-3xl md:w-[640px]"
-        >
+          className="text-[#131313] font-medium text-2xl md:text-3xl md:w-[640px]" >
           Medication safety solutions tailored for every stakeholder in the healthcare journey.
         </motion.h1>
         <motion.p
           variants={textVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-sm text-[#5E5E5E] md:w-[640px] mt-2"
+          className="text-sm text-[#5E5E5E] md:w-[640px] mt-4 text-[16px] leading-6"
         >
           Tailored medication safety solutions for everyone in the healthcare ecosystem.
           From individual users to healthcare providers and insurance companies, MARMAR delivers specialized tools to prevent medication errors and improve outcomes.
@@ -128,7 +127,7 @@ const OurOfferings = () => {
             fullWidth: true,
             showButton: true,
             buttonText: "Let's help talk to your workplace about MARMAR ",
-            buttonClass: "bg-[#E3555A] text-white rounded-sm",
+            buttonClass: "bg-[#E3555A] text-white rounded-sm shadow-md font-medium ",
             icon: true,
           },
         ].map((item, index) => (
@@ -156,13 +155,13 @@ const OurOfferings = () => {
               <div className={`${item.fullWidth ? "lg:max-w-[50%]" : "w-full"}`}>
                 <motion.h3
                   variants={textVariants}
-                  className="text-[#1C1C1C] font-semibold text-xl sm:text-[1.3rem] mt-4 sm:mt-8"
+                  className="text-[#1C1C1C] font-medium text-[20px] sm:text-[1.3rem] mt-4 sm:mt-8"
                 >
                   {item.title}
                 </motion.h3>
                 <motion.p
                   variants={textVariants}
-                  className="text-[#5E5E5E] text-sm sm:text-base mt-2"
+                  className="text-[#1C1C1C] text-[16px] sm:text-base mt-4"
                 >
                   {item.description}
                 </motion.p>
@@ -171,7 +170,7 @@ const OurOfferings = () => {
                     variants={buttonVariants}
                     className="mt-4"
                   >
-                    <Button className={`${item.buttonClass} text-xs sm:text-sm flex items-center space-x-1`}>
+                    <Button className={`${item.buttonClass} text-xs sm:text-sm flex items-center space-x-1 mb-4`}>
                       <span>{item.buttonText}</span>
                       {item.icon && <ChevronRight className="w-4 h-4" />}
                     </Button>
@@ -201,7 +200,7 @@ const OurOfferings = () => {
                   className="w-full flex justify-center mt-4 lg:mt-0"
                 >
                   <Image
-                    src={item.image ?? "/fallback.svg"} // Ensures a valid string
+                    src={item.image ?? "/fallback.svg"} 
                     alt={item.title}
                     width={item.fullWidth ? 445 : 455}
                     height={item.fullWidth ? 387 : 300}

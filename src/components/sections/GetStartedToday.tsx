@@ -13,26 +13,13 @@ const GetStartedToday = () => {
   const animationTimerRef = useRef<NodeJS.Timeout | null>(null);
   const previousDirectionRef = useRef<string | null>(null);
 
-  const scrollLocked = useRef(false)
-
   const cardItems = [
     { number: 1, title: "Medication Details", description: "Enter your current medications and supplements. Our AI understands even complex combinations, ensuring nothing is missed in your analysis." },
     { number: 2, title: "Instant Analysis", description: "Our AI immediately processes your medication list, checking for potential interactions and important considerations." },
     { number: 3, title: "Personalized Insights", description: "Receive clear, easy-to-understand insights about your medications, with important highlights for your attention." },
     { number: 4, title: "Safer Medication Use", description: "Get a personalized medication safety profile, empowering you to take the right steps for better health." },
   ];
-  const disableScroll = () => {
-    document.body.style.overflow = "hidden";
-    scrollLocked.current = true;
-  };
-
-
-  const enableScroll = () => {
-    document.body.style.overflow = "auto";
-    scrollLocked.current = false;
-  };
-
-
+ 
   const clearAnimationTimer = () => {
     if (animationTimerRef.current) {
       clearInterval(animationTimerRef.current);
@@ -40,46 +27,56 @@ const GetStartedToday = () => {
     }
   };
 
-  // Handle forward animation (1 to 4)
   const runForwardAnimation = () => {
+    setAnimationRunning(true); 
     clearAnimationTimer();
     setActiveStep(0);
-    disableScroll();
+
     let step = 0;
     
     animationTimerRef.current = setInterval(() => {
       if (step < cardItems.length - 1) {
-        setActiveStep((prev) => (prev !== null ? prev + 1 : 1));
         step++;
+        setActiveStep(step);
       } else {
         clearAnimationTimer();
         setAnimationRunning(false);
-        enableScroll();
       }
-    }, 700);
+    }, 500);  
     
     previousDirectionRef.current = "down";
   };
 
   const runBackwardAnimation = () => {
+    setAnimationRunning(true)
     clearAnimationTimer();
     setActiveStep(cardItems.length - 1);
-    disableScroll();
+  
     let step = cardItems.length - 1;
     
     animationTimerRef.current = setInterval(() => {
       if (step > 0) {
-        setActiveStep((prev) => (prev !== null ? prev - 1 : 0));
         step--;
+        setActiveStep(step);
       } else {
         clearAnimationTimer();
         setAnimationRunning(false);
-        enableScroll();
       }
-    }, 700);
+    }, 2000);
     
     previousDirectionRef.current = "up";
   };
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!animationRunning) {
+        runForwardAnimation();
+      }
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -89,22 +86,18 @@ const GetStartedToday = () => {
         const scrollDirection = currentScrollY > lastScrollYRef.current ? "down" : "up";
         lastScrollYRef.current = currentScrollY;
   
-        if (entry.intersectionRatio >= 0.9 && !animationRunning) {
-          setAnimationRunning(true);
-          disableScroll();
-  
+        if (entry.isIntersecting && !animationRunning) {
           if (scrollDirection === "down" && previousDirectionRef.current !== "down") {
             runForwardAnimation();
           } else if (scrollDirection === "up" && previousDirectionRef.current !== "up") {
             runBackwardAnimation();
           }
-        } else if (entry.intersectionRatio < 0.9) { 
+        } else if (!entry.isIntersecting) { 
           clearAnimationTimer();
           setAnimationRunning(false);
-          enableScroll();
         }
       },
-      { threshold: 0.9 } 
+      { threshold: 0.5 }  
     );
   
     if (componentRef.current) {
@@ -114,11 +107,9 @@ const GetStartedToday = () => {
     return () => {
       observer.disconnect();
       clearAnimationTimer();
-      enableScroll();
     };
   }, [cardItems.length]);
   
-
   return (
     <div ref={ref}>
       <motion.div
@@ -129,11 +120,11 @@ const GetStartedToday = () => {
       >
         <motion.div className="mt-12 space-y-4 text-center mb-8 md:text-left">
           <motion.div>
-            <Button className="bg-[#2CC295] rounded-full text-xs md:text-md">
-              Get your Comprehensive Medication Analysis in Seconds
+            <Button className="bg-[#2CC295] rounded-full text-[12px] md:text-md px-6 font-medium text-[#E8F4F0]">
+              GET YOUR COMPREHENSIVE ANALYSIS IN SECONDS
             </Button>
           </motion.div>
-          <motion.h1 className="text-[#131313] font-bold md:text-2xl text-xl md:w-[500px]">
+          <motion.h1 className="text-[#131313] font-medium md:text-[36px] leading-10 text-xl max-w-[800px] ">
             Four Simple Steps To Safer Medication Management
           </motion.h1>
           <motion.p className="text-[#5E5E5E] m-0 max-w-[550px]">
@@ -202,6 +193,7 @@ const GetStartedToday = () => {
             </motion.div>
           ))}
         </div>
+        
       </motion.div>
     </div>
   );

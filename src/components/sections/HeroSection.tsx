@@ -74,30 +74,30 @@ const HeroSection = () => {
         </motion.div>
         <motion.div
           variants={textVariants}
-          className="text-center  max-w-[700px] mt-[5rem]"
+          className="text-center  max-w-[900px] mt-[5rem]"
         >
-          <motion.h1 variants={textVariants} className="text-[#131313] font-bold text-[1.5rem] md:text-[2.5rem] leading-10 ">
+          <motion.h1 variants={textVariants} className="text-[#131313] font-bold text-[32px] md:text-[64px] leading-9 md:leading-[4rem] ">
             The Medications you take should heal, not harm
             <motion.span
               variants={textVariants}
-              className="text-[#E3555A] md:inline-block hidden ml-[1rem]"
+              className="text-[#E3555A] md:inline-block hidden ml-0 md:ml-[1rem]"
             >
               you.
             </motion.span>
           </motion.h1>
 
-          <motion.p variants={textVariants} className="text-[#606060] mt-4">
+          <motion.p variants={textVariants} className="text-[#606060] mt-4 ">
           MARMAR analyzes your medications instantly, alerting you to potential dangers and giving you the power to prevent problems before they start
           </motion.p>
 
           <motion.div
             variants={buttonVariants}
-            className="flex gap-3 mx-auto mt-5 justify-center items-center "
+            className="flex gap-3 mx-auto mt-5 justify-center items-center m-[4rem]"
           >
-            <Button className="bg-[#2CC295] hover:bg-[#446259] ">
+            <Button className="bg-[#2CC295]  text-[#E8F4F0]">
               Check Your Medication <ChevronRight />
             </Button>
-            <Button className="bg-white text-[#131313] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] hover:bg-slate-600 rounded-md">
+            <Button className="bg-white text-[#131313]  rounded-md">
               Get Started Now
             </Button>
           </motion.div>
