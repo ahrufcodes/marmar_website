@@ -212,9 +212,9 @@ const Faq = () => {
                   className={`w-full border rounded-lg text-left font-medium p-3 flex justify-between items-center ${
                     item.isWarning
                       ? "bg-[#E3555A] text-white border-[#E3555A]"
-                      : index < 4
-                      ? "bg-[#E8F4F0] border-[#E8F4F0] text-[#131313]"
-                      : "bg-white border-gray-200  text-[#131313]"
+                   
+                      : "bg-[#E8F4F0] border-[#E8F4F0] text-[#131313]"
+                    
                   }`}
                 >
                   <span>{item.question}</span>

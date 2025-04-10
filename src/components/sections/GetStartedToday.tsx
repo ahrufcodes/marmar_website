@@ -9,7 +9,7 @@ const GetStartedToday = () => {
   const [activeStep, setActiveStep] = useState<number | null>(null);
   const [animationRunning, setAnimationRunning] = useState<boolean>(false);
   const componentRef = useRef<HTMLDivElement>(null);
-  const lastScrollYRef = useRef<number>(window.scrollY);
+  const lastScrollYRef = useRef<number>(0);
   const animationTimerRef = useRef<NodeJS.Timeout | null>(null);
   const previousDirectionRef = useRef<string | null>(null);
 
@@ -82,19 +82,23 @@ const GetStartedToday = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        const currentScrollY = window.scrollY;
-        const scrollDirection = currentScrollY > lastScrollYRef.current ? "down" : "up";
-        lastScrollYRef.current = currentScrollY;
-  
-        if (entry.isIntersecting && !animationRunning) {
-          if (scrollDirection === "down" && previousDirectionRef.current !== "down") {
-            runForwardAnimation();
-          } else if (scrollDirection === "up" && previousDirectionRef.current !== "up") {
-            runBackwardAnimation();
+        
+        // Protect window access to avoid SSR issues
+        if (typeof window !== "undefined") {
+          const currentScrollY = window.scrollY;
+          const scrollDirection = currentScrollY > lastScrollYRef.current ? "down" : "up";
+          lastScrollYRef.current = currentScrollY;
+
+          if (entry.isIntersecting && !animationRunning) {
+            if (scrollDirection === "down" && previousDirectionRef.current !== "down") {
+              runForwardAnimation();
+            } else if (scrollDirection === "up" && previousDirectionRef.current !== "up") {
+              runBackwardAnimation();
+            }
+          } else if (!entry.isIntersecting) { 
+            clearAnimationTimer();
+            setAnimationRunning(false);
           }
-        } else if (!entry.isIntersecting) { 
-          clearAnimationTimer();
-          setAnimationRunning(false);
         }
       },
       { threshold: 0.5 }  
@@ -109,7 +113,6 @@ const GetStartedToday = () => {
       clearAnimationTimer();
     };
   }, [cardItems.length]);
-  
   return (
     <div ref={ref}>
       <motion.div
@@ -124,7 +127,7 @@ const GetStartedToday = () => {
               GET YOUR COMPREHENSIVE ANALYSIS IN SECONDS
             </Button>
           </motion.div>
-          <motion.h1 className="text-[#131313] font-medium md:text-[36px] leading-10 text-xl max-w-[800px] ">
+          <motion.h1 className="text-[#131313] font-medium md:text-[36px] leading-[30px] text-[24px] max-w-[800px]">
             Four Simple Steps To Safer Medication Management
           </motion.h1>
           <motion.p className="text-[#5E5E5E] m-0 max-w-[550px]">

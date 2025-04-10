@@ -60,50 +60,58 @@ const HeroSection = () => {
       <motion.div
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="space-y-6 mt-4 md:flex  flex-col  justify-between px-10 items-center"
+        className="space-y-6 mt-4 md:flex  flex-col  justify-between px-8 items-center"
       >
 
-<motion.div variants={imageVariants} className="">
+        <motion.div variants={imageVariants} className="flex items-center justify-center">
           <Image
             src="/assets/Pill.svg"
             alt="image"
             width={400}
             height={600}
-            className="w-full h-auto object-contain"
+            className="md:w-full md:h-auto object-contain w-[134px] h-[134px]"
           />
         </motion.div>
         <motion.div
           variants={textVariants}
-          className="text-center  max-w-[900px] mt-[5rem]"
+          className="text-center  max-w-[1000px] mt-[5rem]"
         >
-          <motion.h1 variants={textVariants} className="text-[#131313] font-bold text-[32px] md:text-[64px] leading-9 md:leading-[4rem] ">
+          <motion.h1 variants={textVariants} className="text-[#131313] font-bold text-[34px] md:text-[64px] leading-9 md:leading-[4rem] ">
             The Medications you take should heal, not harm
             <motion.span
               variants={textVariants}
-              className="text-[#E3555A] md:inline-block hidden ml-0 md:ml-[1rem]"
+              className="text-[#E3555A] ml-[0.5rem] md:ml-[1rem]"
             >
               you.
             </motion.span>
           </motion.h1>
 
           <motion.p variants={textVariants} className="text-[#606060] mt-4 ">
-          MARMAR analyzes your medications instantly, alerting you to potential dangers and giving you the power to prevent problems before they start
+            MARMAR analyzes your medications instantly, alerting you to potential dangers and giving you the power to prevent problems before they start
           </motion.p>
 
           <motion.div
-            variants={buttonVariants}
-            className="flex gap-3 mx-auto mt-5 justify-center items-center m-[4rem]"
-          >
-            <Button className="bg-[#2CC295]  text-[#E8F4F0]">
-              Check Your Medication <ChevronRight />
-            </Button>
-            <Button className="bg-white text-[#131313]  rounded-md">
-              Get Started Now
-            </Button>
-          </motion.div>
+  variants={buttonVariants}
+  className="flex flex-col md:flex-row items-center justify-center gap-4 mt-6 px-4 sm:px-0"
+>
+  {/* Button 1: Gradient Border */}
+  <div className="relative w-full md:w-auto p-[1px] rounded-md bg-gradient-to-b from-[#BFD8B3] to-[#339465] group">
+    <a href="https://www.mamarhealth.com/"  target="_blank" className="block">
+      <Button className="bg-[#2CC295] hover:bg-[#25A07A] w-full md:w-auto rounded-[3px] transition-colors duration-200">
+        Check Your Medication Now <ChevronRight className="ml-5" />
+      </Button>
+    </a>
+  </div>
+
+  {/* Button 2: Outline Style */}
+  <Button className="w-full md:w-auto bg-white text-[#131313] rounded-md hover:bg-[#f0f0f0] hover:text-black transition duration-200 shadow-[inset_0_0_1px_1px_#4D91E13B]">
+    Get Started Now
+  </Button>
+</motion.div>
+
         </motion.div>
 
-   
+
       </motion.div>
 
       <motion.div
@@ -114,35 +122,35 @@ const HeroSection = () => {
       >
         <h2 className="text-[#606060]">Supported & In Partnership With</h2>
         <div className="flex gap-2 justify-center items-center ml-[15px] md:ml-0 ">
-  <Image
-    src="/assets/microsoft.svg"
-    alt="Microsoft"
-    width={60}
-    height={36}
-    className="w-auto max-w-[200px] md:h-[40px]"
-  />
-  <Image
-    src="/assets/health.svg"
-    alt="Health" 
-    width={50}
-    height={36}
-    className="w-auto max-w-[100px] md:h-[40px]"
-  />
-  <Image
-    src="/assets/playform.svg"
-    alt="Platform"
-    width={60}
-    height={36}
-    className="w-auto max-w-[100px] md:h-[40px]"
-  />
-  <Image
-    src="/assets/systemImage.svg"
-    alt="System"
-    width={50}
-    height={36}
-    className="w-auto max-w-[50px] md:max-w-[100px] md:h-[40px]"
-  />
-</div>
+          <Image
+            src="/assets/microsoft.svg"
+            alt="Microsoft"
+            width={60}
+            height={36}
+            className="w-auto max-w-[200px] md:h-[40px]"
+          />
+          <Image
+            src="/assets/health.svg"
+            alt="Health"
+            width={50}
+            height={36}
+            className="w-auto max-w-[100px] md:h-[40px]"
+          />
+          <Image
+            src="/assets/playform.svg"
+            alt="Platform"
+            width={60}
+            height={36}
+            className="w-auto max-w-[100px] md:h-[40px]"
+          />
+          <Image
+            src="/assets/systemImage.svg"
+            alt="System"
+            width={50}
+            height={36}
+            className="w-auto max-w-[50px] md:max-w-[100px] md:h-[40px]"
+          />
+        </div>
 
       </motion.div>
     </div>

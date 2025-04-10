@@ -82,11 +82,11 @@ const EmpoweringSection = () => {
   };
 
   return (
-    <section ref={ref} className="mt-16 mb-16 text-center md:text-left">
+    <section ref={ref} className="mt-16 mb-20 text-center md:text-left">
       <motion.div
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="overflow-hidden max-w-[1400px] h-full px-4 sm:px-5 mx-auto"
+        className="overflow-hidden max-w-[1400px] h-full px-6 sm:px-5 mx-auto"
       >
         <motion.div
           variants={textVariants}
@@ -120,7 +120,7 @@ const EmpoweringSection = () => {
               variants={cardVariants}
               custom={index}
               whileHover="hover"
-              className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 flex flex-col items-start "
+              className="bg-white rounded-2xl shadow-sm hover:bg-[#E8F4F0]   hover:shadow-md transition-all duration-300 p-6 flex flex-col items-start "
             >
               <div className=" rounded-full w-16 h-16 flex items-center justify-center mb-4">
               <Image
@@ -130,10 +130,10 @@ const EmpoweringSection = () => {
                     height={48}
                   />
               </div>
-              <h3 className="text-[#042222] font-medium text-[20px] mb-3">
+              <h3 className="text-[#042222] font-medium text-start  text-[15px] md:text-[20px]  mb-3">
                      {item.title}
                    </h3>
-                   <p className="text-[#042222] text-start  text-[16px]">
+                   <p className="text-[#042222] text-start  text-[13px] md:text-[16px]">
                      {item.description}
                    </p>
             </motion.div>

@@ -84,14 +84,14 @@ const EmpoweringSection = () => {
       <motion.div
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="overflow-hidden max-w-[1400px] h-full px-5 mx-auto"
+        className="overflow-hidden max-w-[1400px] h-full px-6 mx-auto"
       >
         <motion.div
           variants={textVariants}
           className="mt-[3rem] space-y-6 mb-8 text-left w-full  "
         >
           <motion.div variants={textVariants}>
-            <Button className="bg-[#2CC295]  rounded-[27px] h-[32px] px-8 font-bold text-[#E8F4F0]">
+            <Button className="bg-[#2CC295]  rounded-[27px] h-[32px] px-8 font-bold text-[#E8F4F0] text-[10px] md:text-[14px]">
             Reduce Costs, Improve Outcomes for Your Members
             </Button>
           </motion.div>
@@ -117,7 +117,7 @@ const EmpoweringSection = () => {
                    variants={cardVariants}
                    custom={index}
                    whileHover="hover"
-                   className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 flex flex-col items-start "
+                   className="bg-white  rounded-2xl shadow-sm hover:bg-[#E8F4F0]   hover:shadow-md cd transition-all duration-300 p-6 flex flex-col items-start "
                  >
                    <div className=" rounded-full w-16 h-16 flex items-center justify-center mb-4">
                    <Image
@@ -127,10 +127,10 @@ const EmpoweringSection = () => {
                          height={48}
                        />
                    </div>
-                   <h3 className="text-[#042222] font-medium text-[20px] mb-3">
+                   <h3 className="text-[#042222] font-medium text-start  text-[15px] md:text-[20px]  mb-3">
                      {item.title}
                    </h3>
-                   <p className="text-[#042222] text-start  text-[16px]">
+                   <p className="text-[#042222] text-start  text-[13px] md:text-[16px]">
                      {item.description}
                    </p>
                  </motion.div>
@@ -141,7 +141,7 @@ const EmpoweringSection = () => {
                variants={textVariants}
                className="mt-12 flex justify-start"
              >
-               <Button className="bg-[#E3555A] text-white rounded-sm shadow-md font-medium">
+               <Button className="bg-[#E3555A] text-white rounded-sm shadow-md font-medium text-[10px] md:text-sm">
                Schedule a consultation to discuss member implementation
                  <ChevronRight className="w-5 h-5" />
                </Button>

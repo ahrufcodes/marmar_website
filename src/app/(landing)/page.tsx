@@ -15,9 +15,17 @@ const page = () => {
       <GetStartedToday />
       <Faq />
       <Testimonials />
+ 
       <OurOfferings />
-      <EmpoweringSection />
-      <Insurancecompanies/>
+   
+  
+        <section id="providers-section">
+          <EmpoweringSection />
+        </section>
+        <section id="insurance-section">
+          <Insurancecompanies />
+        </section>
+ 
       <Partners/>
 
     </>

@@ -133,7 +133,8 @@ const Testimonials = () => {
                   duration: 0.7,
                   delay: index * 0.2,
                 }}
-                className={`${item.bgColor} rounded-3xl p-6 h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                className={`${item.bgColor} rounded-xl hover:rounded-3xl p-6 h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+
               >
                 <div className="flex flex-col justify-between h-full min-h-[320px]">
                   <div>

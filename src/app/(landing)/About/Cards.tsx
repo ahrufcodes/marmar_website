@@ -1,32 +1,40 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 type CardContent = string | string[];
-
 
 interface InfoCardProps {
   imageUrl: string;
   imageAlt: string;
-  tagText?: string; 
+  tagText?: string;
   title: string;
   content: CardContent;
   isReversed?: boolean;
-  hideTag?: boolean; 
-  highlightTitle?: boolean; // ✅ NEW
+  hideTag?: boolean;
+  highlightTitle?: boolean;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ 
-  imageUrl, 
-  imageAlt, 
-  tagText = "", 
-  title, 
-  content, 
+const InfoCard: React.FC<InfoCardProps> = ({
+  imageUrl,
+  imageAlt,
+  tagText = "",
+  title,
+  content,
   isReversed = false,
   hideTag = false,
-  highlightTitle = false // ✅ NEW
+  highlightTitle = false
 }) => {
   return (
-    <div className={`flex justify-center gap-8 mt-[6rem] flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+    <motion.div
+      className={`flex justify-between gap-8 mt-[6rem] flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <Image
         src={imageUrl}
         alt={imageAlt}
@@ -35,42 +43,39 @@ const InfoCard: React.FC<InfoCardProps> = ({
         className="w-full md:w-2/5 rounded-3xl object-cover"
         priority
       />
-      <div className="max-w-[620px]">
+  <div
+  className={`max-w-[620px] ${
+    title === "Collaborations & Joining" ? "text-left mx-auto mt-1 md:mt-[5rem]" : ""
+  }`}
+>
+
         {!hideTag && (
           <button className="bg-[#E3555A] text-xs px-6 text-[#E8F4F0] h-9 md:h-7 rounded-full">
             {tagText}
           </button>
         )}
-        
-        <h2 className={`mt-4 max-w-md 
-  ${highlightTitle 
-    ? "text-[#5E5E5E] text-sm md:text-md font-normal leading-6"
-    : "text-[#1C1C1C] text-sm md:text-2xl font-medium"
-  }`}>
-  {title}
-</h2>
 
+        <h2 className={`mt-4 max-w-md ${highlightTitle
+          ? "text-[#5E5E5E] text-sm md:text-[16px] font-normal leading-6"
+          : "text-[#1C1C1C] text-sm md:text-2xl font-medium"
+          }`}>
+          {title}
+        </h2>
 
         {typeof content === 'string' ? (
-          <p className="mt-4 text-sm md:text-md text-[#5E5E5E] leading-6" dangerouslySetInnerHTML={{ __html: content }}></p>
+          <p className="mt-4 text-sm md:text-[16px] text-[#5E5E5E] leading-6" dangerouslySetInnerHTML={{ __html: content }}></p>
         ) : (
           <ul className="list-none">
             {content.map((item, index) => {
-        
               const [boldPart, ...rest] = item.split(" - ");
               const restJoined = rest.join(" - ");
 
               return (
-                <li key={index} className="mt-1 md:mt-4 text-sm md:text-md text-[#5E5E5E] leading-6 flex items-start">
+                <li key={index} className="mt-1 md:mt-4 text-sm md:text-[16px] text-[#5E5E5E] leading-6 flex items-start">
                   <span className="text-[#5E5E5E] mr-2">•</span>
                   <span>
-                  {highlightTitle ? (
-  <strong>{boldPart}</strong>
-) : (
-  boldPart
-)}
-{restJoined && ` - ${restJoined}`}
-
+                    {highlightTitle ? <strong>{boldPart}</strong> : boldPart}
+                    {restJoined && ` - ${restJoined}`}
                   </span>
                 </li>
               );
@@ -78,27 +83,27 @@ const InfoCard: React.FC<InfoCardProps> = ({
           </ul>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 interface CardData extends InfoCardProps {}
 
 const Cards: React.FC = () => {
-
   const cardsData: CardData[] = [
     {
       imageUrl: "/assets/AboutCard1.svg",
       imageAlt: "The Problem",
-      tagText: "The problem we're trying to solve",
+      tagText: "THE PROBLEM WERE TRYING TO SOLVE",
       title: "One preventable hospitalization happens every 2.7 minutes",
-      content: "The silent dangers of adverse drug reactions and medication errors pose a significant threat to patient safety. Inappropriate polypharmacy—the concurrent use of multiple medications without clear clinical justification—affects millions of people, particularly older adults and those with chronic conditions.\n\nMARMAR tackles this challenge head-on by providing real-time, evidence-based analyses of medication combinations, helping users identify potential interactions before they become problems.",
+      content:
+        "The silent dangers of adverse drug reactions and medication errors pose a significant threat to patient safety. Inappropriate polypharmacy—the concurrent use of multiple medications without clear clinical justification—affects millions of people, particularly older adults and those with chronic conditions.\n\nMARMAR tackles this challenge head-on by providing real-time, evidence-based analyses of medication combinations, helping users identify potential interactions before they become problems.",
       isReversed: false
     },
     {
       imageUrl: "/assets/AboutCard2.svg",
       imageAlt: "Our Approach",
-      tagText: "Our Approach",
+      tagText: "OUR APPROACH",
       title: "Using advanced AI and the latest pharmaceutical research, MARMAR delivers:",
       content: [
         "Comprehensive medication interaction assessments",
@@ -114,13 +119,14 @@ const Cards: React.FC = () => {
       imageAlt: "Our mission",
       tagText: "OUR  MISSION",
       title: "Our mission goes beyond medication management",
-      content: "We aim to empower individuals with the knowledge and tools they need to take control of their health, fostering a world where medication safety is a given, not a luxury. Through advanced AI and data-driven analysis, we're reducing the risks associated with polypharmacy and improving patient outcomes worldwide.",
+      content:
+        "We aim to empower individuals with the knowledge and tools they need to take control of their health, fostering a world where medication safety is a given, not a luxury. Through advanced AI and data-driven analysis, we're reducing the risks associated with polypharmacy and improving patient outcomes worldwide.",
       isReversed: false
     },
     {
       imageUrl: "/assets/AboutCard5.svg",
       imageAlt: "Our Aspirations",
-      tagText: "Our Aspirations",
+      tagText: "OUR ASPIRATION",
       title: "These aspirations form the cornerstones of MARMAR's vision for the future",
       content: [
         " Healthcare System Integration - Seamlessly connecting with existing healthcare systems to provide comprehensive medication management",
@@ -130,22 +136,28 @@ const Cards: React.FC = () => {
         "Global Accessibility - Making medication safety tools available to everyone, regardless of location or resources"
       ],
       isReversed: true,
-      highlightTitle: true 
+      highlightTitle: true
     },
     {
       imageUrl: "/assets/AboutCard3.svg",
       imageAlt: "Collaborations & Joining",
       title: "Collaborations & Joining",
-      content: "If what we're building resonates with you please just reach out to us, join us, come and say hi let's us know or share your drug interaction journey with us <span style=\"background: linear-gradient(270deg, #042222 -55.94%, #66B29B 106.32%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;\">— marmar.platform@gmail.com</span>",
+      content:
+        "If what we're building resonates with you please just reach out to us, join us, come and say hi let's us know or share your drug interaction journey with us <span style=\"background: linear-gradient(270deg, #042222 -55.94%, #66B29B 106.32%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;\">— marmar.platform@gmail.com</span>",
       isReversed: false,
       hideTag: true
     }
   ];
 
   return (
-    <div className="mt-[7rem] px-8 space-y-24">
+    <motion.div
+      className="mt-[7rem] px-8 space-y-24"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       {cardsData.map((card, index) => (
-        <InfoCard 
+        <InfoCard
           key={index}
           imageUrl={card.imageUrl}
           imageAlt={card.imageAlt}
@@ -154,10 +166,10 @@ const Cards: React.FC = () => {
           content={card.content}
           isReversed={card.isReversed}
           hideTag={card.hideTag}
-           highlightTitle={card.highlightTitle} 
+          highlightTitle={card.highlightTitle}
         />
       ))}
-    </div>
+    </motion.div>
   );
 };
 
