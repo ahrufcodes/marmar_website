@@ -22,7 +22,7 @@ const AboutHeroSection = () => {
         />
 
         <motion.div
-          className="absolute bg-[#F4F8F7] w-[100%] max-w-[312px] md:max-w-[670px] rounded-[16px] px-4 md:px-8 p-4 md:p-8 flex flex-col items-center md:items-start justify-start left-1/2 md:left-[10%] -translate-x-1/2 md:-translate-x-0 top-[38%] md:top-[65%] shadow-lg"
+          className="absolute bg-[#F4F8F7] w-[100%] max-w-[312px] md:max-w-[670px] rounded-[16px] px-[4rem] p-4 md:p-8 flex flex-col items-center md:items-start justify-start -translate-x-1/2 top-[38%] md:top-[44%] shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
