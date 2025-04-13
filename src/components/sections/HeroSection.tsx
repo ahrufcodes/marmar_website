@@ -86,8 +86,9 @@ const HeroSection = () => {
             </motion.span>
           </motion.h1>
 
-          <motion.p variants={textVariants} className="text-[#606060] mt-4 ">
-            MARMAR analyzes your medications instantly, alerting you to potential dangers and giving you the power to prevent problems before they start
+          <motion.p variants={textVariants} className="mb-4 mt-6 text-gray-700 text-sm">
+            MARMAR analyzes your medications instantly, alerting you to potential dangers and giving you the 
+            <br />power to prevent problems before they start
           </motion.p>
 
           <motion.div
@@ -122,7 +123,7 @@ const HeroSection = () => {
         transition={{ duration: 0.7, delay: 0.6 }}
         className="space-y-2 mx-auto text-center mt-[2rem] flex flex-col justify-center items-center "
       >
-        <h2 className="text-[#606060]">Supported & In Partnership With</h2>
+        <h2 className="text-gray-700 text-sm">Supported & In Partnership With</h2>
         <div className="flex gap-2 justify-center items-center ml-[15px] md:ml-0 ">
           <Image
             src="/assets/microsoft.svg"

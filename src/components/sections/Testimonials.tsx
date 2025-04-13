@@ -133,14 +133,14 @@ const Testimonials = () => {
                   duration: 0.7,
                   delay: index * 0.2,
                 }}
-                className={`${item.bgColor} rounded-xl hover:rounded-3xl p-6 h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                className={`${item.bgColor} rounded-xl hover:rounded-3xl p-6 h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl group`}
 
               >
                 <div className="flex flex-col justify-between h-full min-h-[320px]">
                   <div>
                     <motion.p
                       variants={textVariants}
-                      className="text-[#FEFFF1] font-medium text-lg leading-relaxed"
+                      className="text-[#FEFFF1] font-medium mb-4 text-sm"
                     >
                       &quot;{item.testimonial}&quot;
                     </motion.p>
@@ -148,13 +148,13 @@ const Testimonials = () => {
                   <div className="mt-6">
                     <motion.p
                       variants={textVariants}
-                      className="text-[#FEFFF1] font-bold text-[1.1rem] mb-1"
+                      className="text-[#FEFFF1] font-bold mb-0 text-sm transition-all duration-300 group-hover:text-base"
                     >
                       {item.author}
                     </motion.p>
                     <motion.p
                       variants={textVariants}
-                      className="text-[#042222] font-semibold text-xl"
+                      className="text-[#042222] font-semibold text-sm transition-all duration-300 group-hover:text-base"
                     >
                       {item.jobDescription}
                     </motion.p>

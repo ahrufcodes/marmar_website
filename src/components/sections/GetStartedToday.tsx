@@ -130,7 +130,7 @@ const GetStartedToday = () => {
           <motion.h1 className="text-[#131313] font-medium md:text-[36px] leading-[30px] text-[24px] max-w-[800px]">
             Four Simple Steps To Safer Medication Management
           </motion.h1>
-          <motion.p className="text-[#5E5E5E] m-0 max-w-[550px]">
+          <motion.p className="mb-4 text-gray-700 text-sm max-w-[550px]">
             Our advanced AI transforms complex pharmacology into actionable insights, giving you a complete understanding of your medication safety profile without the medical jargon.
           </motion.p>
         </motion.div>
@@ -162,7 +162,7 @@ const GetStartedToday = () => {
                 <h3 className="text-[#1C1C1C] font-medium text-lg">
                   {item.title}
                 </h3>
-                <p className="text-[#5E5E5E] text-left text-sm">{item.description}</p>
+                <p className="text-gray-700 text-sm">{item.description}</p>
               </div>
             </motion.div>
           ))}
@@ -191,7 +191,7 @@ const GetStartedToday = () => {
                   ${activeStep !== null && index <= activeStep ? "text-[#2CC295]" : "text-gray-500"}`}>
                   {item.title}
                 </h3>
-                <p className="text-[#5E5E5E]">{item.description}</p>
+                <p className="text-gray-700 text-sm">{item.description}</p>
               </div>
             </motion.div>
           ))}

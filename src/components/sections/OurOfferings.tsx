@@ -78,7 +78,7 @@ const OurOfferings = () => {
           variants={textVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-sm text-[#5E5E5E] md:w-[640px] mt-4 text-[16px] leading-6"
+          className="mb-4 text-gray-700 text-sm md:w-[640px]"
         >
           Tailored medication safety solutions for everyone in the healthcare ecosystem.
           From individual users to healthcare providers and insurance companies, MARMAR delivers specialized tools to prevent medication errors and improve outcomes.
@@ -163,7 +163,7 @@ const OurOfferings = () => {
                 </motion.h3>
                 <motion.p
                   variants={textVariants}
-                  className="text-[#1C1C1C] text-[14px] lg:text-[14px] mt-4"
+                  className="mb-4 text-gray-700 text-sm"
                 >
                   {item.description}
                 </motion.p>

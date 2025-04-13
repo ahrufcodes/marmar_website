@@ -105,7 +105,7 @@ const EmpoweringSection = () => {
             Enhance Your EHR Platform with Medication Intelligence
           </motion.h1>
 
-          <motion.p variants={textVariants} className="text-[#606060] text-sm md:text-base m-0 md:w-[600px]">
+          <motion.p variants={textVariants} className="mb-4 text-gray-700 text-sm md:w-[600px]">
             Integrate MARMAR&apos;s advanced medication analysis capabilities directly into your EHR system to provide unprecedented value to healthcare providers and their patients.
           </motion.p>
         </motion.div>
@@ -133,7 +133,7 @@ const EmpoweringSection = () => {
               <h3 className="text-[#042222] font-medium text-start  text-[15px] md:text-[20px]  mb-3">
                      {item.title}
                    </h3>
-                   <p className="text-[#042222] text-start  text-[13px] md:text-[16px]">
+                   <p className="mb-4 text-gray-700 text-sm text-start">
                      {item.description}
                    </p>
             </motion.div>
