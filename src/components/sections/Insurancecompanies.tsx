@@ -8,7 +8,7 @@ const Insurancecompanies = () => {
   <div className='px-8'>
 
 
-    <div className=" bg-gradient-to-r from-[#042222]  to-[#66B29B]  rounded-xl p-6 md:p-10 text-white w-full flex flex-col md:flex-row justify-between items-center h-auto md:h-[432px] ">
+    <div className=" bg-gradient-to-r from-[#042222]  to-[#66B29B]  rounded-[24px] p-6 md:p-10 text-white w-full flex flex-col md:flex-row justify-between items-center h-auto md:h-[432px] shadow-md">
 
       <div className="max-w-lg space-y-6 text-left text-sm text-[#E8F4F0]">
         <Button className="bg-[#2CC295]  border border-white transition-all duration-300 rounded-[27px] px-6 h-[29px] text-sm font-medium">

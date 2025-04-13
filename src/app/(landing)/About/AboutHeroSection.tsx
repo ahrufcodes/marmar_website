@@ -13,7 +13,7 @@ const AboutHeroSection = () => {
         transition={{ duration: 0.8 }}
       >
         <Image
-          src="/assets/abouthero.svg"
+          src="/assets/abouthero.png"
           alt="About Hero"
           width={1000}
           height={1000}
@@ -44,10 +44,12 @@ const AboutHeroSection = () => {
         transition={{ delay: 0.3, duration: 0.7 }}
       >
         <Image
-          src="/assets/Pill.svg"
-          alt="About Hero"
-          width={100}
-          height={100}
+          src="/assets/Pill.png"
+          alt="Pill Icon"
+          width={150}
+          height={150}
+          quality={100}
+          className="w-auto h-auto max-w-[150px]"
           priority
         />
         <p className="text-[#1C1C1C] text-sm md:text-[25px] font-medium mt-4 max-w-[800px] text-center leading-6 md:leading-8">
