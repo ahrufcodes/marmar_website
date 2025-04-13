@@ -44,7 +44,7 @@ const AboutHeroSection = () => {
         transition={{ delay: 0.3, duration: 0.7 }}
       >
         <Image
-          src="/assets/pill.svg"
+          src="/assets/Pill.svg"
           alt="About Hero"
           width={100}
           height={100}
