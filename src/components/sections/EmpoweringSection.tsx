@@ -36,7 +36,7 @@ const EmpoweringSection = () => {
       imageName: "/assets/bulb.png",
       title: "Regulatory Compliance",
       description:
-        "Support your healthcare clients' medication safety initiatives and help them meet quality measures related to medication management",
+        "Support your healthcare clients&apos; medication safety initiatives and help them meet quality measures related to medication management",
     },
   ];
 
@@ -106,7 +106,7 @@ const EmpoweringSection = () => {
           </motion.h1>
 
           <motion.p variants={textVariants} className="text-[#606060] text-sm md:text-base m-0 md:w-[600px]">
-            Integrate MARMAR's advanced medication analysis capabilities directly into your EHR system to provide unprecedented value to healthcare providers and their patients.
+            Integrate MARMAR&apos;s advanced medication analysis capabilities directly into your EHR system to provide unprecedented value to healthcare providers and their patients.
           </motion.p>
         </motion.div>
 

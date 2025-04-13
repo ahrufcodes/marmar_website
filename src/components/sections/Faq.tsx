@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import { MoveUpRight, Upload, MoveLeft, RotateCcw, Share2, Download } from "lucide-react";
+import { MoveUpRight, Upload, MoveLeft, RotateCcw, Share2 } from "lucide-react";
 
 import { motion, useInView } from "framer-motion";
 
@@ -30,7 +30,7 @@ const Faq = () => {
       id: "symptoms",
       question: "Symptoms",
       answer:
-        "Our AI system is highly accurate and regularly updated with the latest medical research. However, it's designed to be a supplementary tool and should not replace professional medical advice. Always consult with your healthcare provider about your medications.",
+        "Our AI system is highly accurate and regularly updated with the latest medical research. However, it&apos;s designed to be a supplementary tool and should not replace professional medical advice. Always consult with your healthcare provider about your medications.",
       bgColor: "bg-[#E8F4F0]"
     },
     {
@@ -67,7 +67,7 @@ const Faq = () => {
           </p>
 
           <p className="mt-2">
-            The body's natural insulin, helping glucose get into cells and thereby
+            The body&apos;s natural insulin, helping glucose get into cells and thereby
             controlling blood sugar levels.
             <span className="border border-[#2CC295] bg-[#E8F4F0] text-[#2CC295] rounded-md px-2 py-1 text-xs font-semibold ml-2">
               3
@@ -206,7 +206,7 @@ const Faq = () => {
           
           <div className="space-y-4 mt-4 pb-4">
             {faqData.map((item, index) => (
-              <div key={item.id} className="space-y-2">
+              <div key={`${item.id}-${index}`} className="space-y-2">
                 <button 
                   onClick={() => toggleAccordion(item.id)}
                   className={`w-full border rounded-lg text-left font-medium p-3 flex justify-between items-center ${

@@ -41,9 +41,9 @@ const Blogs = () => {
           </li>
         </ul>
         <p className="text-[#667085] w-[75%] hidden sm:block">
-          At Marmar, we've built a sophisticated medication analysis system that
+          At Marmar, we&apos;ve built a sophisticated medication analysis system that
           combines advanced AI technology with comprehensive medical knowledge.
-          Here's how we ensure accuracy, reliability, and clarity in every
+          Here&apos;s how we ensure accuracy, reliability, and clarity in every
           analysis
         </p>
       </div>
@@ -64,9 +64,9 @@ const Blogs = () => {
       </div>
 
       <p className="text-[#667085] my-7 block sm:hidden ">
-        At Marmar, we've built a sophisticated medication analysis system that
+        At Marmar, we&apos;ve built a sophisticated medication analysis system that
         combines advanced AI technology with comprehensive medical knowledge.
-        Here's how we ensure accuracy, reliability, and clarity in every
+        Here&apos;s how we ensure accuracy, reliability, and clarity in every
         analysis
       </p>
 
@@ -75,9 +75,9 @@ const Blogs = () => {
           Introduction
         </h1>
         <p className="text-[#667085] mt-4">
-          At Marmar, we've built a sophisticated medication analysis system that
+          At Marmar, we&apos;ve built a sophisticated medication analysis system that
           combines advanced AI technology with comprehensive medical knowledge.
-          Here's how we ensure accuracy, reliability, and clarity in every
+          Here&apos;s how we ensure accuracy, reliability, and clarity in every
           analysis
         </p>
         <Image
@@ -91,9 +91,9 @@ const Blogs = () => {
           <div className=" h-[200px] left-1/2 w-[4px] bg-[#6941C6]"></div>
           <div>
             <h2 className="text-[1.3rem] text-[#101828] font-semibold">
-              "In a world older and more complete than ours they move finished
+              &quot;In a world older and more complete than ours they move finished
               and complete, gifted with extensions of the senses we have lost or
-              never attained, living by voices we shall never hear."
+              never attained, living by voices we shall never hear.&quot;
             </h2>
             <p className="text-[#667085] mt-4">
               — Olivia Rhye, Product Designer
@@ -134,7 +134,7 @@ const Blogs = () => {
           Other Resources
         </h1>
         <p className="text-[#667085] mt-2">
-          Always Evolving" Our approach to medication safety is dynamic and
+          Always Evolving&quot; Our approach to medication safety is dynamic and
           ever-improving:
         </p>
         <div className="mt-3  px-[1.5rem]">
@@ -150,7 +150,7 @@ const Blogs = () => {
 
         <div className="mt-8">
           <p className="text-[#667085] mt-2">
-            Safety First" While Marmar provides advanced AI-powered analysis, we
+            Safety First&quot; While Marmar provides advanced AI-powered analysis, we
             maintain clear guidelines:
           </p>
           <div className="mt-3 ">

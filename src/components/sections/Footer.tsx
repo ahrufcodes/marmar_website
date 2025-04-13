@@ -14,7 +14,7 @@ const Footer = () => {
             Take Control of your health Today!
           </h1>
           <h3 className="text-white text-[1rem]">
-            Because Understanding your medications shouldn't be complicated.
+            Because Understanding your medications shouldn&apos;t be complicated.
           </h3>
           <Button className="bg-white text-[#000000]">Get Started Now</Button>
         </div>

@@ -6,7 +6,6 @@ import Testimonials from "@/components/sections/Testimonials";
 import OurOfferings from "@/components/sections/OurOfferings";
 import Insurancecompanies from "@/components/sections/Insurancecompanies";
 import Partners from "@/components/sections/Partners"
-import Reveal from "@/components/util/Reveal";
 
 const page = () => {
   return (

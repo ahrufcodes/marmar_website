@@ -87,10 +87,8 @@ const InfoCard: React.FC<InfoCardProps> = ({
   );
 };
 
-interface CardData extends InfoCardProps {}
-
 const Cards: React.FC = () => {
-  const cardsData: CardData[] = [
+  const cardsData: InfoCardProps[] = [
     {
       imageUrl: "/assets/AboutCard1.svg",
       imageAlt: "The Problem",

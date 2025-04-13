@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowUp, ArrowDown } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -44,7 +43,7 @@ const Hiring = () => {
     <>
       <div className="mt-[8rem]   flex flex-col justify-center items-center mx-auto max-w-[900px] text-center">
         <h2 className="text-[#66B29B] text-[0.9rem] text-center ">
-          We’re hiring!
+          We&apos;re hiring!
         </h2>
         <h1 className="text-[#131313]  font-semibold  text-[1.3rem] md:text-[2rem]">
           Meet our team

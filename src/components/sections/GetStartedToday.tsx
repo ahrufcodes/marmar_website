@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Button } from "../ui/button";
 import { motion, useInView } from "framer-motion";
 
@@ -27,7 +27,7 @@ const GetStartedToday = () => {
     }
   };
 
-  const runForwardAnimation = () => {
+  const runForwardAnimation = useCallback(() => {
     setAnimationRunning(true); 
     clearAnimationTimer();
     setActiveStep(0);
@@ -45,9 +45,9 @@ const GetStartedToday = () => {
     }, 500);  
     
     previousDirectionRef.current = "down";
-  };
+  }, [cardItems.length]);
 
-  const runBackwardAnimation = () => {
+  const runBackwardAnimation = useCallback(() => {
     setAnimationRunning(true)
     clearAnimationTimer();
     setActiveStep(cardItems.length - 1);
@@ -65,7 +65,7 @@ const GetStartedToday = () => {
     }, 2000);
     
     previousDirectionRef.current = "up";
-  };
+  }, [cardItems.length]);
 
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const GetStartedToday = () => {
     }, 1000);
     
     return () => clearTimeout(timer);
-  }, []);
+  }, [animationRunning, runForwardAnimation]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -112,7 +112,7 @@ const GetStartedToday = () => {
       observer.disconnect();
       clearAnimationTimer();
     };
-  }, [cardItems.length]);
+  }, [cardItems.length, animationRunning, runForwardAnimation, runBackwardAnimation]);
   return (
     <div ref={ref}>
       <motion.div

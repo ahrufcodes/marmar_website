@@ -2,7 +2,7 @@
 import React from 'react'
 import { Button } from '../ui/button';
 import Image from 'next/image';
-import { div } from 'motion/react-client';
+
 const Insurancecompanies = () => {
   return (
   <div className='px-8'>

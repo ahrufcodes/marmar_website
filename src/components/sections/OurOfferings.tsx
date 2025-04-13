@@ -101,7 +101,7 @@ const OurOfferings = () => {
           {
             title: "Our App",
             description:
-              "Our intuitive app combines AI-powered safety checks with easy-to-use features, ensuring you're always just a tap away from medication insights you can trust.",
+              "Our intuitive app combines AI-powered safety checks with easy-to-use features, ensuring you&apos;re always just a tap away from medication insights you can trust.",
             images: [
               {
                 src: "/assets/ourapp.svg",
@@ -221,7 +221,7 @@ const OurOfferings = () => {
   className="mt-6 lg:hidden w-full flex justify-start "
 >
   <Button className="bg-[#E3555A] text-white rounded-sm shadow-md font-medium text-[12px] flex items-center space-x-1 px-2 py-2">
-    <span>Let's help talk to your workplace about MARMAR</span>
+    <span>Let&apos;s help talk to your workplace about MARMAR</span>
     <ChevronRight className="w-4 h-4" />
   </Button>
 </motion.div>

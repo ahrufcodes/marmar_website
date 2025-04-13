@@ -12,7 +12,7 @@ const Testimonials = () => {
     if (isInView) {
       slideControls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, slideControls]);
 
   const textVariants = {
     hidden: {
@@ -70,14 +70,14 @@ const Testimonials = () => {
     },
     {
       testimonial:
-        "Managing multiple medications used to be a constant source of worry for me. With MarMar, I've found peace of mind. The personalized advice and clear information on medication interactions have made a significant difference in my daily life. It feels like having a personal healthcare assistant at my fingertips",
+        "Managing multiple medications used to be a constant source of worry for me. With MarMar, I&apos;ve found peace of mind. The personalized advice and clear information on medication interactions have made a significant difference in my daily life. It feels like having a personal healthcare assistant at my fingertips",
       author: "Lanre",
       jobDescription: "Patient User",
       bgColor: "bg-[#E3555A]",
     },
     {
       testimonial:
-        "As a 4th year medical student, Marmar has been helpful and efficient in understanding pharmacology easier, especially in the aspect of drug-drug interactions and side effects of drugs. It's faster and also correlates with what I have in my lecture notes",
+        "As a 4th year medical student, Marmar has been helpful and efficient in understanding pharmacology easier, especially in the aspect of drug-drug interactions and side effects of drugs. It&apos;s faster and also correlates with what I have in my lecture notes",
       author: "Imran M",
       jobDescription: "Medical Student",
       bgColor: "bg-gradient-to-r from-[#66B29B] to-[#042222]",
@@ -113,7 +113,7 @@ const Testimonials = () => {
               animate={isInView ? "visible" : "hidden"}
               className="text-[#131313] font-semibold text-2xl md:text-3xl"
             >
-              Don't take our word for it
+              Don&apos;t take our word for it
             </motion.h1>
           </div>
 
@@ -142,7 +142,7 @@ const Testimonials = () => {
                       variants={textVariants}
                       className="text-[#FEFFF1] font-medium text-lg leading-relaxed"
                     >
-                      "{item.testimonial}"
+                      &quot;{item.testimonial}&quot;
                     </motion.p>
                   </div>
                   <div className="mt-6">
