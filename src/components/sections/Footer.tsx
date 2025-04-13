@@ -9,7 +9,7 @@ const Footer = () => {
 
        
          <div
-          className="bg-gradient-to-r from-[#66B29B] to-[#042222] rounded-none md:rounded-lg p-4 text-center space-y-8 w-full flex flex-col  justify-center items-center h-[432px] " >
+          className="bg-gradient-to-r from-[#66B29B] to-[#042222] rounded-[24px] p-4 text-center space-y-8 w-full flex flex-col justify-center items-center h-[432px] shadow-md" >
           <h1 className="text-[2rem] text-white">
             Take Control of your health Today!
           </h1>
@@ -22,77 +22,78 @@ const Footer = () => {
         </div>
         </div>
 
+        {/* Main Footer Section */}
         <div className="px-3 sm:px-6 rounded-lg">
-  <div className="mt-6 sm:mt-12 py-6 sm:py-8 bg-white rounded-lg px-4">
-    <div className="flex flex-col justify-center md:flex-row gap-8 md:gap-16 lg:gap-32">
-      {/* Logo Section */}
-      <div className="mb-6 md:mb-0">
-        <Image
-          src="/assets/footerlogo.png"
-          alt="Marmar logo"
-          width={50}
-          height={41}
-        />
-      </div>
-      
-      {/* Links and Newsletter Section */}
-      <div className="flex flex-row flex-wrap justify-between gap-8 md:gap-12 lg:gap-24">
-        {/* Company Links */}
-        <div className="flex flex-col gap-3">
-          <span className="text-xs text-[#5E5E5E] font-medium mb-1">Company</span>
-          <a href="#"  target="_blank" className="text-xs text-[#042222] hover:text-[#2CC295] transition-colors">About</a>
-          <a href="#"   target="_blank" className="text-xs text-[#042222] hover:text-[#2CC295] transition-colors">Our Approach</a>
-          <a href="#"  target="_blank" className="text-xs text-[#042222] hover:text-[#2CC295] transition-colors">Changelog</a>
-          <a href="#"  target="_blank" className="text-xs text-[#042222] hover:text-[#2CC295] transition-colors">Blog</a>
-          <a href="https://www.instagram.com/marmarapp?igsh=MXE4NjB5czB1bjh1bg"  target="_blank" className="text-xs text-[#042222] hover:text-[#2CC295] transition-colors">Instagram</a>
-          <a href="https://x.com/Marmarapp"   target="_blank" className="text-xs text-[#042222] hover:text-[#2CC295] transition-colors">Twitter</a>
-          <a href="https://www.linkedin.com/company/marmarapp/"  target="_blank" className="text-xs text-[#042222] hover:text-[#2CC295] transition-colors">LinkedIn</a>
-        </div>
-        
-        {/* Research Links */}
-        <div className="flex flex-col gap-3">
-          <span className="text-xs text-[#5E5E5E] font-medium mb-1">Research</span>
-          <a href="#" className="text-xs text-[#042222] hover:text-[#2CC295] transition-colors">Accuracy</a>
-          <a href="#" className="text-xs text-[#042222] hover:text-[#2CC295] transition-colors">Model</a>
-        </div>
-        
-        {/* Newsletter - Desktop */}
-        <div className="bg-[#F0F0F0] rounded-2xl p-4 sm:p-6 w-full md:w-auto md:max-w-xs lg:max-w-sm hidden md:block">
-          <h2 className="text-xs">
-            <span className="text-[#2CC295] text-xs">Get notified when we launch</span> our mobile app.
-          </h2>
-          <div className="flex mt-4 border border-[#DADADA] rounded-full bg-white">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-3 py-2 text-xs rounded-full focus:outline-none"
-            />
-            <button className="bg-white border-0 rounded-full px-4 py-2 text-xs text-black transition-colors duration-300 hover:text-[#2CC295]">
-              Subscribe
-            </button>
+          <div className="mt-6 sm:mt-12 py-6 sm:py-8 bg-white rounded-[24px] px-4 md:px-8 lg:px-12 shadow-md">
+            {/* Main Footer Content - 4 Column Layout */}
+            <div className="flex flex-col md:flex-row md:justify-between items-start gap-8">
+              {/* Logo Section - First Column */}
+              <div className="mb-6 md:mb-0">
+                <Image
+                  src="/assets/footerlogo.png"
+                  alt="Marmar logo"
+                  width={50}
+                  height={41}
+                />
+              </div>
+              
+              {/* Mobile: Columns side by side, Desktop: Regular layout */}
+              <div className="flex flex-row justify-between md:flex-col md:justify-start w-full md:w-auto gap-8 md:gap-0">
+                {/* Company Links Column */}
+                <div className="flex flex-col gap-3">
+                  <span className="text-xs text-[#131313] font-medium mb-1">Company</span>
+                  <a href="#" target="_blank" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">About</a>
+                  <span className="text-xs text-[#667085] cursor-not-allowed opacity-75">Our Approach</span>
+                  <span className="text-xs text-[#667085] cursor-not-allowed opacity-75">Blog</span>
+                  <a href="https://www.instagram.com/marmarapp?igsh=MXE4NjB5czB1bjh1bg" target="_blank" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">Instagram</a>
+                  <a href="https://x.com/Marmarapp" target="_blank" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">Twitter (X)</a>
+                  <a href="https://www.linkedin.com/company/marmarapp/" target="_blank" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">LinkedIn</a>
+                </div>
+                
+                {/* Research Links Column */}
+                <div className="flex flex-col gap-3">
+                  <span className="text-xs text-[#131313] font-medium mb-1">Research</span>
+                  <a href="#" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">DrugFormDB</a>
+                  <a href="https://cohere.com/events/cohere-for-ai-Ahmad-Rufai-2025" target="_blank" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">Our Founder's Talk with Cohere For AI</a>
+                  <span className="text-xs text-[#667085] cursor-not-allowed opacity-75">Model</span>
+                  <span className="text-xs text-[#667085] cursor-not-allowed opacity-75">Explainability</span>
+                </div>
+              </div>
+              
+              {/* Newsletter - Fourth Column */}
+              <div className="bg-[#F4F4F4] rounded-[24px] p-4 sm:p-6 w-full md:w-auto md:max-w-xs lg:w-[320px] mt-6 md:mt-0">
+                <h2 className="text-xs">
+                  <span className="text-[#2CC295] text-xs">Get notified when we launch our app.</span> our mobile app.
+                </h2>
+                <div className="flex mt-4 border border-[#DADADA] rounded-full bg-white">
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    className="flex-1 px-3 py-2 text-xs rounded-full focus:outline-none"
+                  />
+                  <button className="bg-white border-0 rounded-full px-4 py-2 text-xs text-black transition-colors duration-300 hover:text-[#2CC295]">
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          
+            <div
+              className="h-px w-full my-8"
+              style={{
+                background: "linear-gradient(to right, #000000 0%, #EEEFF0 50%, #EFEFF1 100%)",
+              }}
+            ></div>
+            
+            {/* Footer Bottom */}
+            <div className="flex flex-col gap-3 md:flex-row justify-between items-center mt-6 mb-4 px-2">
+              <h2 className="text-[#909090] text-xs">© 2025 Marmar</h2>
+              <h2 className="text-[#909090] text-xs text-center md:text-right">
+                MARMAR is a child company of AHRUF Technologies. All rights reserved
+              </h2>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  
-    
- 
-    <div
-      className="h-px w-full mt-8"
-      style={{
-        background: "linear-gradient(to right, #000000 0%, #EEEFF0 50%, #EFEFF1 100%)",
-      }}
-    ></div>
-    
-
-    <div className="flex flex-col gap-3 md:flex-row justify-between items-center mt-6 mb-8 px-2 sm:px-6">
-      <h2 className="text-[#909090] text-xs">© 2025 Marmar</h2>
-      <h2 className="text-[#909090] text-xs text-center md:text-right">
-        Abuja, Nigeria
-      </h2>
-    </div>
-  </div>
-</div>
       </div>
     </>
   );
