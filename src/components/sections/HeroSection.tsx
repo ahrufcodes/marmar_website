@@ -96,7 +96,7 @@ const HeroSection = () => {
 >
   {/* Button 1: Gradient Border */}
   <div className="relative w-full md:w-auto p-[1px] rounded-md bg-gradient-to-b from-[#BFD8B3] to-[#339465] group">
-    <a href="https://www.mamarhealth.com/"  target="_blank" className="block">
+    <a href="https://app.marmar.life/"  target="_blank" className="block">
       <Button className="bg-[#2CC295] hover:bg-[#25A07A] w-full md:w-auto rounded-[3px] transition-colors duration-200">
         Check Your Medication Now <ChevronRight className="ml-5" />
       </Button>
@@ -104,9 +104,11 @@ const HeroSection = () => {
   </div>
 
   {/* Button 2: Outline Style */}
-  <Button className="w-full md:w-auto bg-white text-[#131313] rounded-md hover:bg-[#f0f0f0] hover:text-black transition duration-200 shadow-[inset_0_0_1px_1px_#4D91E13B]">
-    Get Started Now
-  </Button>
+  <a href="https://app.marmar.life/" target="_blank" className="block w-full md:w-auto">
+    <Button className="w-full md:w-auto bg-white text-[#131313] rounded-md hover:bg-[#f0f0f0] hover:text-black transition duration-200 shadow-[inset_0_0_1px_1px_#4D91E13B]">
+      Get Started Now
+    </Button>
+  </a>
 </motion.div>
 
         </motion.div>

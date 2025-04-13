@@ -16,7 +16,9 @@ const Footer = () => {
           <h3 className="text-white text-[1rem]">
             Because Understanding your medications shouldn&apos;t be complicated.
           </h3>
-          <Button className="bg-white text-[#000000]">Get Started Now</Button>
+          <a href="https://app.marmar.life/" target="_blank">
+            <Button className="bg-white text-[#000000]">Get Started Now</Button>
+          </a>
         </div>
         </div>
 
@@ -84,9 +86,9 @@ const Footer = () => {
     
 
     <div className="flex flex-col gap-3 md:flex-row justify-between items-center mt-6 mb-8 px-2 sm:px-6">
-      <h2 className="text-[#909090] text-xs">© 2024 Marmar</h2>
+      <h2 className="text-[#909090] text-xs">© 2025 Marmar</h2>
       <h2 className="text-[#909090] text-xs text-center md:text-right">
-        Registered at Camburgh House, 27 New Dover Road, Canterbury, CT1 3DN, England
+        Abuja, Nigeria
       </h2>
     </div>
   </div>
