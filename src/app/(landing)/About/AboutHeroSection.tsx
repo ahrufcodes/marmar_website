@@ -31,7 +31,7 @@ const AboutHeroSection = () => {
             MARMAR Medication Alert and Risk Management Application for Rx Safety
           </button>
 
-          <p className="text-[#1C1C1C] text-sm md:text-lg font-medium mt-4 text-center md:text-start">
+          <p className="mb-4 text-gray-700 text-sm md:text-sm font-medium mt-4 text-center md:text-start">
             MARMAR is an AI-driven platform designed to empower individuals with the knowledge and tools they need to manage their medications safely.
           </p>
         </motion.div>
@@ -52,7 +52,7 @@ const AboutHeroSection = () => {
           className="w-auto h-auto max-w-[150px]"
           priority
         />
-        <p className="text-[#1C1C1C] text-sm md:text-[25px] font-medium mt-4 max-w-[800px] text-center leading-6 md:leading-8">
+        <p className="mb-4 text-gray-700 text-sm mt-4 max-w-[800px] text-center leading-6">
           In an era where healthcare challenges are increasingly complex, MARMAR stands as a beacon of innovation and safety. We are not just a platform we are a movement towards a safer, smarter healthcare ecosystem.
         </p>
       </motion.div>

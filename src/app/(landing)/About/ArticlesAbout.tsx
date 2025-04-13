@@ -48,7 +48,7 @@ const ArticlesAbout = () => {
         <button className="bg-[#E3555A] text-xs px-6 text-[#E8F4F0] h-9 md:h-7 rounded-full">
           ARTICLES AND RESEARCH
         </button>
-        <p className="text-[#1C1C1C] text-xl md:text-3xl font-medium mt-4 max-w-[800px] md:text-center">
+        <p className="mb-4 text-gray-700 text-sm mt-4 max-w-[800px] md:text-center">
           Explore our latest contributions to the field of medication management and AI-powered healthcare.
         </p>
       </motion.div>
@@ -120,7 +120,7 @@ const ArticlesAbout = () => {
 
               <div className="bg-white w-full h-auto min-h-[180px] flex items-start rounded-b-3xl flex-col px-4 pt-6 pb-6 space-y-4 shadow-sm">
                 <h1 className="text-sm font-semibold">{card.title}</h1>
-                <p className="text-xs text-[#5E5E5E]">{card.description}</p>
+                <p className="mb-4 text-gray-700 text-sm">{card.description}</p>
                 <Button className="bg-white text-[#000000] border border-[#909090] hover:bg-gray-50">
                   Learn More{' '}
                   <ChevronRight className="ml-2 h-4 w-4 text-[#339465] font-bold" />

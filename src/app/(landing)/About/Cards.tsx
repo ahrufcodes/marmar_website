@@ -62,7 +62,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
         </h2>
 
         {typeof content === 'string' ? (
-          <p className="mt-4 text-sm md:text-[16px] text-[#5E5E5E] leading-6" dangerouslySetInnerHTML={{ __html: content }}></p>
+          <p className="mb-4 text-gray-700 text-sm mt-4 leading-6" dangerouslySetInnerHTML={{ __html: content }}></p>
         ) : (
           <ul className="list-none mt-4">
             {content.map((item, index) => {
@@ -70,8 +70,8 @@ const InfoCard: React.FC<InfoCardProps> = ({
               const restJoined = rest.join(" - ");
 
               return (
-                <li key={index} className="mt-1 md:mt-4 text-sm md:text-[16px] text-[#5E5E5E] leading-6 flex items-start">
-                  <span className="text-[#5E5E5E] mr-2">•</span>
+                <li key={index} className="mb-4 text-gray-700 text-sm mt-1 md:mt-4 leading-6 flex items-start">
+                  <span className="text-gray-700 mr-2">•</span>
                   <span>
                     {highlightTitle ? <strong>{boldPart}</strong> : boldPart}
                     {restJoined && ` - ${restJoined}`}
@@ -140,7 +140,7 @@ const Cards: React.FC = () => {
       imageAlt: "Collaborations & Joining",
       title: "Collaborations & Joining",
       content:
-        "If what we're building resonates with you please just reach out to us, join us, come and say hi let's us know or share your drug interaction journey with us <span style=\"background: linear-gradient(270deg, #042222 -55.94%, #66B29B 106.32%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;\">— marmar.platform@gmail.com</span>",
+        "If what we're building resonates with you please just reach out to us, join us, come and say hi let's us know or share your drug interaction journey with us <a href=\"mailto:marmar.platform@gmail.com\" style=\"background: linear-gradient(270deg, #042222 -55.94%, #66B29B 106.32%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;\">— marmar.platform@gmail.com</a>",
       isReversed: false,
       hideTag: true
     }
