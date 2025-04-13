@@ -48,14 +48,14 @@ const Header = () => {
               <ul className="flex space-x-8 text-[#000000] items-center">
               <Link
                     href={`/About`}
-                    className="px-3 py-2 rounded-md text-sm font-medium transition-colors uppercase hover:text-[#2CC295] hover:underline"
+                    className="px-3 py-2 rounded-md text-xs font-medium transition-colors uppercase hover:text-[#2CC295] hover:underline"
                   >
                     About
                   </Link>
                 <li>
                   <button
                     onClick={() => scrollToSection("insurance-section")}
-                    className="px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer uppercase hover:text-[#2CC295] hover:underline"
+                    className="px-3 py-2 rounded-md text-xs font-medium transition-colors cursor-pointer uppercase hover:text-[#2CC295] hover:underline"
                   >
                     Insurance Company
                   </button>
@@ -63,7 +63,7 @@ const Header = () => {
                 <li>
                   <button
                     onClick={() => scrollToSection("providers-section")}
-                    className="px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer uppercase hover:text-[#2CC295] hover:underline"
+                    className="px-3 py-2 rounded-md text-xs font-medium transition-colors cursor-pointer uppercase hover:text-[#2CC295] hover:underline"
                   >
                     For Health Care Providers
                   </button>
@@ -73,7 +73,7 @@ const Header = () => {
 
                   <div className="relative p-[1px] rounded-md bg-gradient-to-b from-[#BFD8B3] to-[#339465] group">
                     <a href="https://app.marmar.life/"  target="_blank">
-                    <Button className="bg-[#2CC295] hover:bg-[#25A07A] w-full rounded-[3px] transition-colors duration-200 uppercase">
+                    <Button className="bg-[#2CC295] hover:bg-[#25A07A] w-full rounded-[3px] transition-colors duration-200 uppercase text-xs">
                       Check Your Medication Now
                     </Button>
                     </a>
@@ -100,7 +100,7 @@ const Header = () => {
 
       {isMobileMenuOpen && (
         <div
-          className="md:hidden absolute left-5 right-5 top-[100px] z-50 bg-gradient-to-r from-[#66B29B] to-[#042222] shadow-lg rounded-b-[24px]"
+          className="md:hidden absolute left-5 right-5 top-[100px] z-50 bg-[#2CC295] shadow-lg rounded-b-[24px]"
           style={{
             animation: "slideDown 0.3s ease-out",
           }}
@@ -110,7 +110,7 @@ const Header = () => {
               <li>
               <Link
                     href={`/About`}
-                    className="px-3 py-2 rounded-md text-sm font-medium transition-colors uppercase hover:text-[#E8F4F0]"
+                    className="px-3 py-2 rounded-md text-xs font-medium transition-colors uppercase hover:text-[#E8F4F0]"
                   >
                     About
                   </Link>
@@ -118,7 +118,7 @@ const Header = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("insurance-section")}
-                  className="block w-full text-white py-2 hover:bg-opacity-80 transition-colors text-left text-sm font-medium uppercase hover:text-[#E8F4F0]"
+                  className="block w-full text-white py-2 hover:bg-opacity-80 transition-colors text-left text-xs font-medium uppercase hover:text-[#E8F4F0]"
                 >
                   Insurance Company
                 </button>
@@ -126,7 +126,7 @@ const Header = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("providers-section")}
-                  className="block w-full text-white py-2 hover:bg-opacity-80 transition-colors text-left text-sm font-medium uppercase hover:text-[#E8F4F0]"
+                  className="block w-full text-white py-2 hover:bg-opacity-80 transition-colors text-left text-xs font-medium uppercase hover:text-[#E8F4F0]"
                 >
                   For Health Care Providers
                 </button>
@@ -134,7 +134,7 @@ const Header = () => {
             </ul>
             <a href="https://app.marmar.life/"  target="_blank">
             <Button
-              className="w-full bg-gradient-to-b from-[#BFD8B3] to-[#339465] text-white uppercase"
+              className="w-full bg-gradient-to-b from-[#BFD8B3] to-[#339465] text-white uppercase text-xs"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Check Your Medication Now
