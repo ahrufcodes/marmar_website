@@ -46,7 +46,7 @@ const ArticlesAbout = () => {
         transition={{ duration: 0.6 }}
       >
         <button className="bg-[#E3555A] text-xs px-6 text-[#E8F4F0] h-9 md:h-7 rounded-full">
-          Articles and Research
+          ARTICLES AND RESEARCH
         </button>
         <p className="text-[#1C1C1C] text-xl md:text-3xl font-medium mt-4 max-w-[800px] md:text-center">
           Explore our latest contributions to the field of medication management and AI-powered healthcare.

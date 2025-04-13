@@ -29,11 +29,11 @@ const InfoCard: React.FC<InfoCardProps> = ({
 }) => {
   return (
     <motion.div
-      className={`flex justify-between gap-8 mt-[6rem] flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+      className={`flex justify-between gap-8 flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-100px" }}
     >
       <Image
         src={imageUrl}
@@ -43,12 +43,11 @@ const InfoCard: React.FC<InfoCardProps> = ({
         className="w-full md:w-2/5 rounded-3xl object-cover"
         priority
       />
-  <div
-  className={`max-w-[620px] ${
-    title === "Collaborations & Joining" ? "text-left mx-auto mt-1 md:mt-[5rem]" : ""
-  }`}
->
-
+      <div
+        className={`max-w-[620px] ${
+          title === "Collaborations & Joining" ? "text-left mx-auto mt-1 md:mt-[5rem]" : ""
+        }`}
+      >
         {!hideTag && (
           <button className="bg-[#E3555A] text-xs px-6 text-[#E8F4F0] h-9 md:h-7 rounded-full">
             {tagText}
@@ -65,7 +64,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
         {typeof content === 'string' ? (
           <p className="mt-4 text-sm md:text-[16px] text-[#5E5E5E] leading-6" dangerouslySetInnerHTML={{ __html: content }}></p>
         ) : (
-          <ul className="list-none">
+          <ul className="list-none mt-4">
             {content.map((item, index) => {
               const [boldPart, ...rest] = item.split(" - ");
               const restJoined = rest.join(" - ");
@@ -90,7 +89,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
 const Cards: React.FC = () => {
   const cardsData: InfoCardProps[] = [
     {
-      imageUrl: "/assets/AboutCard1.svg",
+      imageUrl: "/assets/AboutCard1.png",
       imageAlt: "The Problem",
       tagText: "THE PROBLEM WERE TRYING TO SOLVE",
       title: "One preventable hospitalization happens every 2.7 minutes",
@@ -99,7 +98,7 @@ const Cards: React.FC = () => {
       isReversed: false
     },
     {
-      imageUrl: "/assets/AboutCard2.svg",
+      imageUrl: "/assets/AboutCard2.png",
       imageAlt: "Our Approach",
       tagText: "OUR APPROACH",
       title: "Using advanced AI and the latest pharmaceutical research, MARMAR delivers:",
@@ -113,21 +112,21 @@ const Cards: React.FC = () => {
       isReversed: true
     },
     {
-      imageUrl: "/assets/AboutCard4.svg",
+      imageUrl: "/assets/AboutCard3.png",
       imageAlt: "Our mission",
-      tagText: "OUR  MISSION",
+      tagText: "OUR MISSION",
       title: "Our mission goes beyond medication management",
       content:
         "We aim to empower individuals with the knowledge and tools they need to take control of their health, fostering a world where medication safety is a given, not a luxury. Through advanced AI and data-driven analysis, we're reducing the risks associated with polypharmacy and improving patient outcomes worldwide.",
       isReversed: false
     },
     {
-      imageUrl: "/assets/AboutCard5.svg",
+      imageUrl: "/assets/AboutCard4.png",
       imageAlt: "Our Aspirations",
       tagText: "OUR ASPIRATION",
       title: "These aspirations form the cornerstones of MARMAR's vision for the future",
       content: [
-        " Healthcare System Integration - Seamlessly connecting with existing healthcare systems to provide comprehensive medication management",
+        "Healthcare System Integration - Seamlessly connecting with existing healthcare systems to provide comprehensive medication management",
         "Consumer App Development - Creating an intuitive mobile application that puts medication safety in the palm of your hand, with features like medication reminders, interaction alerts, and personalized health insights",
         "Advanced Personalization - Continuously improving our AI to deliver increasingly tailored advice for each individual's unique needs",
         "Decreased healthcare - costs associated with preventable medication-related hospitalizations",
@@ -137,7 +136,7 @@ const Cards: React.FC = () => {
       highlightTitle: true
     },
     {
-      imageUrl: "/assets/AboutCard3.svg",
+      imageUrl: "/assets/AboutCard5.png",
       imageAlt: "Collaborations & Joining",
       title: "Collaborations & Joining",
       content:
@@ -149,7 +148,7 @@ const Cards: React.FC = () => {
 
   return (
     <motion.div
-      className="mt-[7rem] px-8 space-y-24"
+      className="mt-[7rem] px-8 space-y-32"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
