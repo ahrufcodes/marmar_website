@@ -21,7 +21,7 @@ const Header = () => {
     <div className="p-5 relative">
       <header
         className={`relative mx-auto max-w-[1400px] rounded-t-[24px] ${isMobileMenuOpen ? " rounded-b-[0px] " : " rounded-b-[24px] "
-          } p-[0.7rem] bg-gradient-to-r from-[#66B29B] to-[#042222]  md:bg-none  shadow-sm md:shadow-none`}
+          } p-[0.7rem] md:bg-transparent bg-[#2CC295] shadow-sm md:shadow-none`}
       >
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -69,9 +69,7 @@ const Header = () => {
                   </button>
                 </li>
                 <li>
-
-
-                  <div className="relative p-[1px] rounded-md bg-gradient-to-b from-[#BFD8B3] to-[#339465] group">
+                  <div className="relative rounded-md">
                     <a href="https://app.marmar.life/"  target="_blank">
                     <Button className="bg-[#2CC295] hover:bg-[#25A07A] w-full rounded-[3px] transition-colors duration-200 uppercase text-xs">
                       Check Your Medication Now
@@ -105,12 +103,12 @@ const Header = () => {
             animation: "slideDown 0.3s ease-out",
           }}
         >
-          <div className="container mx-auto px-6 py-6 space-y-4">
-            <ul className="space-y-4 text-white">
+          <div className="container mx-auto px-6 py-8 space-y-6">
+            <ul className="space-y-8 text-white">
               <li>
               <Link
                     href={`/About`}
-                    className="px-3 py-2 rounded-md text-xs font-medium transition-colors uppercase hover:text-[#E8F4F0]"
+                    className="px-3 py-3 block rounded-md text-xs font-medium transition-colors uppercase hover:text-[#E8F4F0]"
                   >
                     About
                   </Link>
@@ -118,7 +116,7 @@ const Header = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("insurance-section")}
-                  className="block w-full text-white py-2 hover:bg-opacity-80 transition-colors text-left text-xs font-medium uppercase hover:text-[#E8F4F0]"
+                  className="block w-full text-white py-3 hover:bg-opacity-80 transition-colors text-left text-xs font-medium uppercase hover:text-[#E8F4F0]"
                 >
                   Insurance Company
                 </button>
@@ -126,15 +124,15 @@ const Header = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("providers-section")}
-                  className="block w-full text-white py-2 hover:bg-opacity-80 transition-colors text-left text-xs font-medium uppercase hover:text-[#E8F4F0]"
+                  className="block w-full text-white py-3 hover:bg-opacity-80 transition-colors text-left text-xs font-medium uppercase hover:text-[#E8F4F0]"
                 >
                   For Health Care Providers
                 </button>
               </li>
             </ul>
-            <a href="https://app.marmar.life/"  target="_blank">
+            <a href="https://app.marmar.life/"  target="_blank" className="mt-6 block">
             <Button
-              className="w-full bg-gradient-to-b from-[#BFD8B3] to-[#339465] text-white uppercase text-xs"
+              className="w-full bg-[#2CC295] border border-white text-white uppercase text-xs py-5"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Check Your Medication Now

@@ -5,25 +5,25 @@ const Footer = () => {
   return (
     <>
       <div className="">
-        <div className="px-0 md:px-6 rounded-lg">
+        <div className="px-8 md:px-6 rounded-lg">
 
        
          <div
-          className="bg-gradient-to-r from-[#66B29B] to-[#042222] rounded-[24px] p-4 text-center space-y-8 w-full flex flex-col justify-center items-center h-[432px] shadow-md" >
-          <h1 className="text-[2rem] text-white">
+          className="bg-gradient-to-r from-[#66B29B] to-[#042222] rounded-[24px] p-6 md:p-4 text-center space-y-6 md:space-y-8 w-full flex flex-col justify-center items-center h-auto md:h-[432px] shadow-md" >
+          <h1 className="text-[1.5rem] md:text-[2rem] text-white">
             Take Control of your health Today!
           </h1>
-          <h3 className="text-white text-[1rem]">
+          <h3 className="text-white text-[0.875rem] md:text-[1rem] px-2">
             Because Understanding your medications shouldn&apos;t be complicated.
           </h3>
           <a href="https://app.marmar.life/" target="_blank">
-            <Button className="bg-white text-[#000000]">Get Started Now</Button>
+            <Button className="bg-white text-[#000000] mt-2">Get Started Now</Button>
           </a>
         </div>
         </div>
 
         {/* Main Footer Section */}
-        <div className="px-3 sm:px-6 rounded-lg">
+        <div className="px-8 sm:px-6 rounded-lg">
           <div className="mt-6 sm:mt-12 py-6 sm:py-8 bg-white rounded-[24px] px-4 md:px-8 lg:px-12 shadow-md">
             {/* Main Footer Content - Desktop: 4 horizontal columns, Mobile: stacked */}
             <div className="flex flex-col md:flex-row md:justify-between md:items-start md:space-x-12 lg:space-x-20">
