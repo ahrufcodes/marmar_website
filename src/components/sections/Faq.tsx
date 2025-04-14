@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import Image from "next/image";
-import { Upload, MoveLeft, RotateCcw, Share2, AlertTriangle, Activity, AlertCircle, Clock, ExternalLink, Download } from "lucide-react";
+import { Upload, AlertTriangle, Activity, AlertCircle, Clock, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 
 const Faq = () => {
@@ -150,8 +150,8 @@ const Faq = () => {
         <>
           <div className="space-y-4">
             {[
-              { citation: "Lal R, et al. (2018). Tramadol and insulin: a review of the literature. Journal of Clinical Pharmacology, 58(10), 1231-1238.", url: "#", source: "PubMed" },
-              { citation: "Flockhart DA, et al. (2009). P450 drug interaction table. Indiana University School of Medicine.", url: "#", source: "Clinical Guidelines" }
+              { citation: "The effect of tramadol on blood glucose concentrations: a systematic review. Expert Rev Clin Pharmacol. 2020 May", url: "https://pubmed.ncbi.nlm.nih.gov/32295441/", source: "PubMed" },
+              { citation: "Efficacy of Tramadol for Pain Management in Patients Receiving Strong Cytochrome P450 2D6 Inhibitors", url: "https://pubmed.ncbi.nlm.nih.gov/31038218/#:~:text=Study%20objective:%20Tramadol%20is%20metabolized,yet%20to%20be%20fully%20described.", source: "Clinical Guidelines" }
             ].map((reference, index) => (
               <div key={index} className="p-4 rounded-lg border border-gray-200">
                 <div className="flex items-center justify-between">
@@ -347,13 +347,6 @@ const Faq = () => {
                 </AnimatePresence>
               </motion.div>
             ))}
-          </div>
-          
-          <div className="flex gap-4 items-center mt-6">
-            <MoveLeft className="cursor-pointer transition-colors w-5 h-6 text-[#909090]" />
-            <RotateCcw className="cursor-pointer transition-colors w-5 h-6 text-[#909090]" />
-            <Share2 className="cursor-pointer transition-colors w-5 h-6 text-[#909090]" />
-            <Download className="cursor-pointer transition-colors w-5 h-6 text-[#909090] ml-auto" />
           </div>
         </motion.div>
       </motion.section>
