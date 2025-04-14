@@ -9,16 +9,19 @@ const Footer = () => {
 
        
          <div
-          className="bg-gradient-to-r from-[#66B29B] to-[#042222] rounded-[24px] p-6 md:p-4 text-center space-y-3 md:space-y-4 w-full flex flex-col justify-center items-center h-auto md:h-[432px] shadow-md" >
-          <h2 className="text-[1.5rem] md:text-[2rem] text-white tracking-tighter">
-            Take Control of your health Today!
-          </h2>
-          <h3 className="text-white text-[0.875rem] md:text-[1rem] px-2">
-            Because Understanding your medications should not be complicated.
-          </h3>
-          <a href="https://app.marmar.life/" target="_blank">
-            <Button className="bg-white text-[#000000] mt-2">Get Started Now</Button>
-          </a>
+          className="relative overflow-hidden bg-gradient-to-r from-[#042222] via-[#66B29B] to-[#042222] bg-[length:200%_100%] animate-gradient text-center space-y-3 md:space-y-4 w-full flex flex-col justify-center items-center h-auto md:h-[432px] shadow-md rounded-[24px] py-12 md:py-0" >
+          <div className="absolute inset-0 bg-gradient-to-r from-[#042222] via-[#66B29B] to-[#042222] bg-[length:200%_100%] animate-gradient opacity-50 rounded-[24px]"></div>
+          <div className="relative z-10">
+            <h2 className="text-[1.2rem] md:text-[2rem] text-white tracking-tighter">
+              Take Control of your health Today!
+            </h2>
+            <h3 className="text-white text-[0.75rem] md:text-[1rem] px-2">
+              Because Understanding your medications should not be complicated.
+            </h3>
+            <a href="https://app.marmar.life/" target="_blank">
+              <Button className="bg-white text-[#000000] mt-2">Get Started Now</Button>
+            </a>
+          </div>
         </div>
         </div>
 

@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 8s ease infinite;
+}
+
+.animate-gradient-stroke {
+  background: linear-gradient(90deg, #042222, #66B29B, #042222);
+  background-size: 200% 100%;
+  animation: rotateGradient 3s linear infinite;
+}
+
 body {
   font-family: Inter, sans-serif;
 

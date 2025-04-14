@@ -111,7 +111,7 @@ const Testimonials = () => {
               variants={textVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="text-[#131313] font-semibold text-2xl md:text-3xl"
+              className="text-[#131313] font-semibold text-2xl md:text-3xl tracking-tighter"
             >
               Don't just take our word for it
             </motion.h1>

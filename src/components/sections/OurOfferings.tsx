@@ -136,16 +136,15 @@ const OurOfferings = () => {
           <motion.div
             key={index}
             variants={imageVariants}
-            initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             transition={{
               duration: 0.7,
               delay: index * 0.2,
             }}
             className={`
-                 p-[0.5px] rounded-[30px] bg-gradient-to-r from-[#042222]  to-[#66B29B]
-       min-h-[100%] w-full
-    ${item.fullWidth ? "md:col-span-2" : ""}
+              p-[0.5px] rounded-[30px] animate-gradient-stroke
+              min-h-[100%] w-full
+              ${item.fullWidth ? "md:col-span-2" : ""}
             `}
           >
             <div
