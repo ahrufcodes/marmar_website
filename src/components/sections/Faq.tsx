@@ -265,91 +265,93 @@ const Faq = () => {
   
   return (
     <div ref={ref}>
-      <motion.section
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="max-w-[1400px] h-full px-5 mx-auto space-y-4 mb-8 bg-white md:bg-[#E8F4F0] md:border md:rounded-lg md:px-8 md:pt-8 md:pb-[5rem]"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="bg-white md:p-6 md:border md:rounded-2xl py-[2rem] shadow-lg"
+      <div className="max-w-[1400px] mx-auto px-8">
+        <motion.section
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="h-full px-5 mx-auto space-y-4 mb-8 bg-white md:bg-[#E8F4F0] md:border md:rounded-lg md:px-8 md:pt-8 md:pb-[5rem]"
         >
-          <motion.div className="mb-4 flex items-center">
-            <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-medium bg-[#EBB305]">
-              <span className="hidden sm:inline">INTERACTION RISK LEVEL: MODERATE</span>
-              <span className="sm:hidden">RISK: MODERATE</span>
-            </span>
-            <div className="ml-auto">
-              <Upload className="cursor-pointer text-[#2CC295]" />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="max-w-[1200px] mx-auto bg-white md:p-8 md:border md:rounded-2xl py-[2rem] shadow-lg"
+          >
+            <motion.div className="mb-4 flex items-center">
+              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-medium bg-[#EBB305]">
+                <span className="hidden sm:inline">INTERACTION RISK LEVEL: MODERATE</span>
+                <span className="sm:hidden">RISK: MODERATE</span>
+              </span>
+              <div className="ml-auto">
+                <Upload className="cursor-pointer text-[#2CC295]" />
+              </div>
+            </motion.div>
+
+            <motion.div variants={imageVariants} className="flex items-center mb-4">
+              <Image src="/assets/Pill.png" alt="Marmar" width={28} height={28} />
+              <span className="ml-2 text-gray-500 text-sm">{new Date().toLocaleString()}</span>
+            </motion.div>
+            
+            <motion.p variants={textVariants} className="mb-4 text-gray-700 text-sm">
+              This is a sample history of a 58-year-old male with Type 2 diabetes, chronic lower back pain, and GERD. He takes Tramadol 50mg twice daily for pain management, Omeprazole 20mg once daily for acid reflux, and Lantus (insulin glargine) 20 units at bedtime for diabetes control. The patient weighs 82 kg, stands 175 cm tall, and has no known drug allergies.
+            </motion.p>
+            
+            <div className="space-y-2 mt-6">
+              {faqData.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className={`rounded-lg overflow-hidden border ${
+                    item.isWarning
+                      ? 'bg-[#E3555A] border-[#E3555A]'
+                      : 'bg-[#E8F4F0] border-[#909090] border-opacity-20'
+                  }`}
+                >
+                  <button 
+                    onClick={() => toggleAccordion(item.id)}
+                    className={`w-full text-left px-4 py-3 font-medium flex justify-between items-center text-sm ${
+                      item.isWarning ? 'text-white' : 'text-black'
+                    } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#66B29B]`}
+                    aria-expanded={openItem === item.id}
+                    aria-controls={`section-${index}`}
+                  >
+                    <span className="flex items-center">
+                      {item.icon}
+                      {item.question}
+                    </span>
+                    <svg 
+                      className={`w-5 h-5 transition-transform ${openItem === item.id ? 'transform rotate-180' : ''}`}
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {openItem === item.id && (
+                      <motion.div
+                        id={`section-${index}`}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className={`${
+                          item.isWarning ? 'bg-[#FFEEEE] text-black' : 'bg-white'
+                        }`}
+                      >
+                        <div className="px-4 py-4 text-sm text-gray-800">
+                          {item.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
-
-          <motion.div variants={imageVariants} className="flex items-center mb-4">
-            <Image src="/assets/Pill.png" alt="Marmar" width={28} height={28} />
-            <span className="ml-2 text-gray-500 text-sm">{new Date().toLocaleString()}</span>
-          </motion.div>
-          
-          <motion.p variants={textVariants} className="mb-4 text-gray-700 text-sm">
-            This is a sample history of a 58-year-old male with Type 2 diabetes, chronic lower back pain, and GERD. He takes Tramadol 50mg twice daily for pain management, Omeprazole 20mg once daily for acid reflux, and Lantus (insulin glargine) 20 units at bedtime for diabetes control. The patient weighs 82 kg, stands 175 cm tall, and has no known drug allergies.
-          </motion.p>
-          
-          <div className="space-y-2 mt-6">
-            {faqData.map((item, index) => (
-              <motion.div
-                key={index}
-                className={`rounded-lg overflow-hidden border ${
-                  item.isWarning
-                    ? 'bg-[#E3555A] border-[#E3555A]'
-                    : 'bg-[#E8F4F0] border-[#909090] border-opacity-20'
-                }`}
-              >
-                <button 
-                  onClick={() => toggleAccordion(item.id)}
-                  className={`w-full text-left px-4 py-3 font-medium flex justify-between items-center text-sm ${
-                    item.isWarning ? 'text-white' : 'text-black'
-                  } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#66B29B]`}
-                  aria-expanded={openItem === item.id}
-                  aria-controls={`section-${index}`}
-                >
-                  <span className="flex items-center">
-                    {item.icon}
-                    {item.question}
-                  </span>
-                  <svg 
-                    className={`w-5 h-5 transition-transform ${openItem === item.id ? 'transform rotate-180' : ''}`}
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                
-                <AnimatePresence>
-                  {openItem === item.id && (
-                    <motion.div
-                      id={`section-${index}`}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className={`${
-                        item.isWarning ? 'bg-[#FFEEEE] text-black' : 'bg-white'
-                      }`}
-                    >
-                      <div className="px-4 py-4 text-sm text-gray-800">
-                        {item.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </motion.section>
+        </motion.section>
+      </div>
     </div>
   );
 };
