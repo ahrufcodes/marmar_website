@@ -108,12 +108,12 @@ const OurOfferings = () => {
                 class: "w-full max-w-[174px] h-auto object-contain"
               },
               {
-                src: "/assets/ourapp.svg",
-                class: "w-full max-w-[174px] h-auto object-contain"
+                src: "/assets/ourapp2.svg",
+                class: "w-full max-w-[146px] h-auto object-contain"
               },
               {
-                src: "/assets/ourapp.svg",
-                class: "w-full max-w-[174px] h-auto object-contain"
+                src: "/assets/ourapp3.svg",
+                class: "w-full max-w-[150px] h-auto object-contain"
               }
             ],
             hasMultipleImages: true
@@ -185,16 +185,20 @@ const OurOfferings = () => {
                   variants={imageVariants}
                   className="w-full grid grid-cols-3 gap-2 place-items-center mt-4 lg:mt-0"
                 >
-                  {item.images.map((img, imgIndex) => (
-                    <Image
-                      key={imgIndex}
-                      src={img.src}
-                      alt={`app image ${imgIndex + 1}`}
-                      width={174}
-                      height={304}
-                      className={img.class}
-                    />
-                  ))}
+                  {item.images.map((img, imgIndex) => {
+                    const widthMatch = img.class.match(/max-w-\[(\d+)px\]/);
+                    const width = widthMatch ? parseInt(widthMatch[1]) : 146;
+                    return (
+                      <Image
+                        key={imgIndex}
+                        src={img.src}
+                        alt={`app image ${imgIndex + 1}`}
+                        width={width}
+                        height={304}
+                        className={img.class}
+                      />
+                    );
+                  })}
                 </motion.div>
               ) : (
                 <motion.div
