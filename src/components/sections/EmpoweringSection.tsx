@@ -100,7 +100,7 @@ const EmpoweringSection = () => {
 
           <motion.h1
             variants={textVariants}
-            className="text-[#131313] font-medium text-2xl md:text-3xl md:w-[500px]"
+            className="text-[#131313] font-medium text-2xl md:text-3xl md:w-[500px] tracking-tighter"
           >
             Enhance Your EHR Platform with Medication Intelligence
           </motion.h1>

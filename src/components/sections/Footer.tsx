@@ -10,9 +10,9 @@ const Footer = () => {
        
          <div
           className="bg-gradient-to-r from-[#66B29B] to-[#042222] rounded-[24px] p-6 md:p-4 text-center space-y-6 md:space-y-8 w-full flex flex-col justify-center items-center h-auto md:h-[432px] shadow-md" >
-          <h1 className="text-[1.5rem] md:text-[2rem] text-white">
+          <h2 className="text-[1.5rem] md:text-[2rem] text-white tracking-tighter">
             Take Control of your health Today!
-          </h1>
+          </h2>
           <h3 className="text-white text-[0.875rem] md:text-[1rem] px-2">
             Because Understanding your medications should not be complicated.
           </h3>

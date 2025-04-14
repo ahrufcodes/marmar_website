@@ -14,7 +14,7 @@ const Insurancecompanies = () => {
         <Button className="bg-[#2CC295]  border border-white transition-all duration-300 rounded-[27px] px-6 h-[29px] text-sm font-medium">
           FOR INSURANCE COMPANIES
         </Button>
-        <h1 className="text-sm md:text-[18px] font-medium w-full md:w-[580px] leading-[1.8rem] ">
+        <h1 className="text-sm md:text-[18px] font-medium w-full md:w-[580px] leading-[1.8rem] tracking-tighter">
           For every 100 members using MARMAR, insurers can potentially
           prevent 3-5 medication-related hospitalizations annually,
           representing an estimated $50,000 - $85,000 in savings per 100 members.

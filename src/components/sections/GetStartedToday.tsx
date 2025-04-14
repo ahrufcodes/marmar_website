@@ -127,9 +127,9 @@ const GetStartedToday = () => {
               GET YOUR COMPREHENSIVE ANALYSIS IN SECONDS
             </Button>
           </motion.div>
-          <motion.h1 className="text-[#131313] font-medium md:text-[36px] leading-[30px] text-[24px] max-w-[800px]">
+          <motion.h2 className="text-4xl font-bold tracking-tighter">
             Four Simple Steps To Safer Medication Management
-          </motion.h1>
+          </motion.h2>
           <motion.p className="mb-4 text-gray-700 text-sm max-w-[550px]">
             Our advanced AI transforms complex pharmacology into actionable insights, giving you a complete understanding of your medication safety profile without the medical jargon.
           </motion.p>

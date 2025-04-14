@@ -76,7 +76,7 @@ const HeroSection = () => {
           variants={textVariants}
           className="text-center  max-w-[1000px] mt-[5rem]"
         >
-          <motion.h1 variants={textVariants} className="text-[#131313] font-bold text-[34px] md:text-[64px] leading-9 md:leading-[4rem] ">
+          <motion.h1 variants={textVariants} className="text-[#131313] font-bold text-[34px] md:text-[64px] leading-9 md:leading-[4rem] tracking-tighter">
             The Medications you take should heal, not harm
             <motion.span
               variants={textVariants}

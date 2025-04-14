@@ -71,7 +71,7 @@ const OurOfferings = () => {
           variants={textVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-[#131313] font-medium text-2xl md:text-3xl md:w-[640px]" >
+          className="text-[#131313] font-medium text-2xl md:text-3xl md:w-[640px] tracking-tighter" >
           Medication safety solutions tailored for every stakeholder in the healthcare journey.
         </motion.h1>
         <motion.p
@@ -97,6 +97,7 @@ const OurOfferings = () => {
               "Experience the full power of Marmar on your mobile device. Get instant medication analysis, set personalized reminders, and access your detailed medication history anytime, anywhere.",
             image: "/assets/smartmedication.svg",
             imageClass: "w-full max-w-[455px] h-auto object-contain",
+            titleClass: "tracking-tighter"
           },
           {
             title: "Our App",
@@ -116,7 +117,8 @@ const OurOfferings = () => {
                 class: "w-full max-w-[150px] h-auto object-contain"
               }
             ],
-            hasMultipleImages: true
+            hasMultipleImages: true,
+            titleClass: "tracking-tighter"
           },
           {
             title: "Protect your time and maximize your income",

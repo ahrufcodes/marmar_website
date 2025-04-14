@@ -15,6 +15,7 @@ interface InfoCardProps {
   isReversed?: boolean;
   hideTag?: boolean;
   highlightTitle?: boolean;
+  titleClass?: string;
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({
@@ -25,7 +26,8 @@ const InfoCard: React.FC<InfoCardProps> = ({
   content,
   isReversed = false,
   hideTag = false,
-  highlightTitle = false
+  highlightTitle = false,
+  titleClass
 }) => {
   return (
     <motion.div
@@ -93,6 +95,7 @@ const Cards: React.FC = () => {
       imageAlt: "The Problem",
       tagText: "THE PROBLEM WERE TRYING TO SOLVE",
       title: "One preventable hospitalization happens every 2.7 minutes",
+      titleClass: "tracking-tighter",
       content:
         "The silent dangers of adverse drug reactions and medication errors pose a significant threat to patient safety. Inappropriate polypharmacy—the concurrent use of multiple medications without clear clinical justification—affects millions of people, particularly older adults and those with chronic conditions.\n\nMARMAR tackles this challenge head-on by providing real-time, evidence-based analyses of medication combinations, helping users identify potential interactions before they become problems.",
       isReversed: false
@@ -102,6 +105,7 @@ const Cards: React.FC = () => {
       imageAlt: "Our Approach",
       tagText: "OUR APPROACH",
       title: "Using advanced AI and the latest pharmaceutical research, MARMAR delivers:",
+      titleClass: "tracking-tighter",
       content: [
         "Comprehensive medication interaction assessments",
         "Practical advice for managing your medication regimen safely",
@@ -116,6 +120,7 @@ const Cards: React.FC = () => {
       imageAlt: "Our mission",
       tagText: "OUR MISSION",
       title: "Our mission goes beyond medication management",
+      titleClass: "tracking-tighter",
       content:
         "We aim to empower individuals with the knowledge and tools they need to take control of their health, fostering a world where medication safety is a given, not a luxury. Through advanced AI and data-driven analysis, we're reducing the risks associated with polypharmacy and improving patient outcomes worldwide.",
       isReversed: false
@@ -139,6 +144,7 @@ const Cards: React.FC = () => {
       imageUrl: "/assets/AboutCard5.png",
       imageAlt: "Collaborations & Joining",
       title: "Collaborations & Joining",
+      titleClass: "tracking-tighter",
       content:
         "If what we are building resonates with you please just reach out to us, join us, come and say hi let us know or share your drug interaction journey with us <a href=\"mailto:marmar.platform@gmail.com\" style=\"background: linear-gradient(270deg, #042222 -55.94%, #66B29B 106.32%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;\">— marmar.platform@gmail.com</a>",
       isReversed: false,
@@ -164,6 +170,7 @@ const Cards: React.FC = () => {
           isReversed={card.isReversed}
           hideTag={card.hideTag}
           highlightTitle={card.highlightTitle}
+          titleClass={card.titleClass}
         />
       ))}
     </motion.div>

@@ -98,7 +98,7 @@ const EmpoweringSection = () => {
 
           <motion.h1
             variants={textVariants}
-            className="text-[#131313] font-medium text-[20px] md:text-[36px] md:w-[640px] leading-10" >
+            className="text-[#131313] font-medium text-[20px] md:text-[36px] md:w-[640px] leading-10 tracking-tighter" >
           Partner with MARMAR to prevent medication-related hospitalizations
           </motion.h1>
 
