@@ -45,7 +45,7 @@ const Hiring = () => {
         <h2 className="text-[#66B29B] text-[0.9rem] text-center ">
           We are hiring!
         </h2>
-        <h1 className="text-[#131313]  font-semibold  text-[1.3rem] md:text-[2rem]">
+        <h1 className="text-[#131313] mt-6 font-semibold text-[1.3rem] md:text-[2rem] tracking-tighter">
           Meet our team
         </h1>
         <p className="text-[#606060]  ">

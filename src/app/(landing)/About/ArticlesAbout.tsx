@@ -48,7 +48,7 @@ const ArticlesAbout = () => {
         <button className="bg-[#E3555A] text-xs px-6 text-[#E8F4F0] h-9 md:h-7 rounded-full">
           ARTICLES AND RESEARCH
         </button>
-        <p className="mb-4 text-gray-700 text-sm mt-4 max-w-[800px] md:text-center">
+        <p className="mb-4 text-gray-700 text-sm mt-8 max-w-[800px] md:text-center tracking-tighter">
           Explore our latest contributions to the field of medication management and AI-powered healthcare.
         </p>
       </motion.div>

@@ -22,16 +22,16 @@ const AboutHeroSection = () => {
         />
 
         <motion.div
-          className="absolute bg-[#F4F8F7] w-[100%] max-w-[312px] md:max-w-[670px] rounded-[16px] px-[4rem] p-4 md:p-8 flex flex-col items-center md:items-start justify-start -translate-x-1/2 top-[38%] md:top-[44%] shadow-lg"
+          className="absolute bg-[#F4F8F7] w-[100%] max-w-[312px] md:max-w-[670px] rounded-[16px] px-[4rem] p-4 md:p-8 flex flex-col items-center justify-start -translate-x-1/2 top-[38%] md:top-[44%] shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <button className="bg-[#E3555A] text-[8px] md:text-xs px-2 md:px-6 text-[#E8F4F0] text-center md:text-start h-[36px] md:h-[27px] rounded-full">
+          <button className="bg-[#E3555A] text-[8px] md:text-xs px-2 md:px-6 text-[#E8F4F0] text-center h-[36px] md:h-[27px] rounded-full">
             MARMAR Medication Alert and Risk Management Application for Rx Safety
           </button>
 
-          <p className="mb-4 text-gray-700 text-sm md:text-sm font-medium mt-4 text-center md:text-start">
+          <p className="mb-4 text-gray-700 text-sm md:text-sm font-medium mt-8 text-center tracking-tighter">
             MARMAR is an AI-driven platform designed to empower individuals with the knowledge and tools they need to manage their medications safely.
           </p>
         </motion.div>

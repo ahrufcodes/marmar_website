@@ -51,7 +51,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
         }`}
       >
         {!hideTag && (
-          <button className="bg-[#E3555A] text-xs px-6 text-[#E8F4F0] h-9 md:h-7 rounded-full">
+          <button className="bg-[#E3555A] text-xs px-6 text-[#E8F4F0] h-9 md:h-7 rounded-full mb-6">
             {tagText}
           </button>
         )}
