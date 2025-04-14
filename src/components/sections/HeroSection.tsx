@@ -121,7 +121,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.6 }}
-        className="space-y-2 mx-auto text-center mt-[2rem] flex flex-col justify-center items-center "
+        className="space-y-2 mx-auto text-center mt-[2rem] mb-[4rem] flex flex-col justify-center items-center "
       >
         <h2 className="text-gray-700 text-sm">Supported & In Partnership With</h2>
         <div className="flex gap-2 justify-center items-center ml-[15px] md:ml-0 ">
