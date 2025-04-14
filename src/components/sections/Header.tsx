@@ -1,21 +1,70 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   // Function to handle smooth scrolling to sections with explicit type
   const scrollToSection = (sectionId: string): void => {
     setIsMobileMenuOpen(false); // Close mobile menu if open
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    
+    // Check if we're on the About page or another page
+    if (pathname.includes("/About")) {
+      // If on About page, first navigate to home page, then scroll to section
+      router.push(`/?scrollTo=${sectionId}`);
+    } else {
+      // If already on home page, just scroll to the section
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // Try alternative selectors if ID doesn't work
+        const altSection = document.querySelector(`[data-section-target="${sectionId}"]`);
+        if (altSection) {
+          altSection.scrollIntoView({ behavior: "smooth" });
+        } else {
+          console.log(`Section with ID or data attribute ${sectionId} not found`);
+        }
+      }
     }
   };
+
+  // Check for URL parameters on page load to handle redirects from About page
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      const scrollToParam = url.searchParams.get("scrollTo");
+      
+      if (scrollToParam) {
+        // Remove the param from URL without refreshing
+        url.searchParams.delete("scrollTo");
+        window.history.replaceState({}, "", url.toString());
+        
+        // Increased delay to ensure the DOM is fully loaded and rendered
+        setTimeout(() => {
+          const section = document.getElementById(scrollToParam);
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+          } else {
+            // Try alternative selectors if ID doesn't work
+            const altSection = document.querySelector(`[data-section-target="${scrollToParam}"]`);
+            if (altSection) {
+              altSection.scrollIntoView({ behavior: "smooth" });
+            } else {
+              console.log(`Section with ID or data attribute ${scrollToParam} not found`);
+            }
+          }
+        }, 500); // Increased from 100ms to 500ms
+      }
+    }
+  }, []);
 
   return (
     <div className="p-5 relative">
@@ -46,18 +95,12 @@ const Header = () => {
 
             <nav className="hidden md:block">
               <ul className="flex space-x-8 text-[#000000] items-center">
-              <Link
-                    href={`/About`}
-                    className="px-3 py-2 rounded-md text-xs font-medium transition-colors uppercase hover:text-[#2CC295] hover:underline"
-                  >
-                    About
-                  </Link>
-                <li>
+              <li>
                   <button
-                    onClick={() => scrollToSection("insurance-section")}
+                    onClick={() => scrollToSection("our-offering-section")}
                     className="px-3 py-2 rounded-md text-xs font-medium transition-colors cursor-pointer uppercase hover:text-[#2CC295] hover:underline"
                   >
-                    Insurance Company
+                    Our Offering
                   </button>
                 </li>
                 <li>
@@ -65,9 +108,23 @@ const Header = () => {
                     onClick={() => scrollToSection("providers-section")}
                     className="px-3 py-2 rounded-md text-xs font-medium transition-colors cursor-pointer uppercase hover:text-[#2CC295] hover:underline"
                   >
-                    For Health Care Providers
+                    FOR EHR COMPANIES
                   </button>
                 </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("insurance-section")}
+                    className="px-3 py-2 rounded-md text-xs font-medium transition-colors cursor-pointer uppercase hover:text-[#2CC295] hover:underline"
+                  >
+                    FOR INSURANCE COMPANIES
+                  </button>
+                </li>
+                <Link
+                    href={`/About`}
+                    className="px-3 py-2 rounded-md text-xs font-medium transition-colors uppercase hover:text-[#2CC295] hover:underline"
+                  >
+                    About
+                  </Link>
                 <li>
                   <div className="relative rounded-md">
                     <a href="https://app.marmar.life/"  target="_blank">
@@ -106,19 +163,11 @@ const Header = () => {
           <div className="container mx-auto px-6 py-8 space-y-6">
             <ul className="space-y-8 text-white">
               <li>
-              <Link
-                    href={`/About`}
-                    className="px-3 py-3 block rounded-md text-xs font-medium transition-colors uppercase hover:text-[#E8F4F0]"
-                  >
-                    About
-                  </Link>
-              </li>
-              <li>
                 <button
-                  onClick={() => scrollToSection("insurance-section")}
+                  onClick={() => scrollToSection("our-offering-section")}
                   className="block w-full text-white py-3 hover:bg-opacity-80 transition-colors text-left text-xs font-medium uppercase hover:text-[#E8F4F0]"
                 >
-                  Insurance Company
+                  Our Offering
                 </button>
               </li>
               <li>
@@ -126,8 +175,24 @@ const Header = () => {
                   onClick={() => scrollToSection("providers-section")}
                   className="block w-full text-white py-3 hover:bg-opacity-80 transition-colors text-left text-xs font-medium uppercase hover:text-[#E8F4F0]"
                 >
-                  For Health Care Providers
+                  FOR EHR COMPANIES
                 </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("insurance-section")}
+                  className="block w-full text-white py-3 hover:bg-opacity-80 transition-colors text-left text-xs font-medium uppercase hover:text-[#E8F4F0]"
+                >
+                  FOR INSURANCE COMPANIES
+                </button>
+              </li>
+              <li>
+              <Link
+                    href={`/About`}
+                    className="px-3 py-3 block rounded-md text-xs font-medium transition-colors uppercase hover:text-[#E8F4F0]"
+                  >
+                    About
+                  </Link>
               </li>
             </ul>
             <a href="https://app.marmar.life/"  target="_blank" className="mt-6 block">

@@ -140,7 +140,7 @@ const Cards: React.FC = () => {
       imageAlt: "Collaborations & Joining",
       title: "Collaborations & Joining",
       content:
-        "If what we're building resonates with you please just reach out to us, join us, come and say hi let's us know or share your drug interaction journey with us <a href=\"mailto:marmar.platform@gmail.com\" style=\"background: linear-gradient(270deg, #042222 -55.94%, #66B29B 106.32%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;\">— marmar.platform@gmail.com</a>",
+        "If what we are building resonates with you please just reach out to us, join us, come and say hi let us know or share your drug interaction journey with us <a href=\"mailto:marmar.platform@gmail.com\" style=\"background: linear-gradient(270deg, #042222 -55.94%, #66B29B 106.32%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;\">— marmar.platform@gmail.com</a>",
       isReversed: false,
       hideTag: true
     }

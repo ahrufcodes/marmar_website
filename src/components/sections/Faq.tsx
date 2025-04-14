@@ -14,7 +14,7 @@ const Faq = () => {
       id: "detail-explanation",
       question: "Detailed Explanation",
       answer:
-        "Tramadol and Omeprazole interact through the CYP2D6 enzyme system. Omeprazole can inhibit this enzyme, potentially increasing Tramadol levels in your bloodstream by 30-50%. This may enhance pain relief but also increases the risk of side effects like drowsiness, dizziness, and constipation. The interaction is classified as moderate because it requires monitoring but rarely causes severe outcomes in most patients. Lantus (insulin glargine) works through a different metabolic pathway and doesn't directly interact with either medication, but your diabetes management requires careful attention since pain medications and potential side effects can affect eating patterns and glucose control.",
+        "Tramadol, an opioid analgesic, can increase the risk of hypoglycemia when used with Lantus, a long-acting insulin. Omeprazole, a proton pump inhibitor, may increase the absorption of Tramadol, potentially leading to increased side effects. Additionally, Lantus can cause hypokalemia, which may be exacerbated by Omeprazole.",
       bgColor: "bg-[#E8F4F0]",
       icon: <svg className="w-5 h-5 mr-2" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19 5H5v14h14V5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -25,7 +25,7 @@ const Faq = () => {
       id: "general-advice",
       question: "General Advice",
       answer:
-        "Take all medications exactly as prescribed, paying attention to timing. Tramadol should be taken with food to reduce stomach upset. Omeprazole works best when taken 30-60 minutes before the first meal of the day. Monitor your blood sugar more frequently when starting or adjusting any medication. Keep a symptom diary to track any side effects and share this with your healthcare provider. Don't suddenly stop taking any of these medications without consulting your doctor, as this could lead to withdrawal symptoms or return of underlying conditions. Always inform all healthcare providers about your complete medication list, including over-the-counter drugs and supplements.",
+        "Regular monitoring of blood glucose levels, kidney function, and signs of hypokalemia is crucial. Patients should also be aware of the potential for increased Tramadol side effects, such as dizziness and somnolence, and take precautions to avoid accidents.",
       bgColor: "bg-[#E8F4F0]"
     },
     {
@@ -42,9 +42,8 @@ const Faq = () => {
               <p className="text-gray-600 text-sm mb-3">These are normal reactions that most people experience with these medications.</p>
               <div className="space-y-2">
                 {[
-                  { name: "Drowsiness", duration: "First 2-3 days, usually improves as your body adjusts" },
-                  { name: "Mild nausea", duration: "First week, take medication with food to minimize" },
-                  { name: "Dry mouth", duration: "Ongoing, can be managed with sugar-free candies or regular water intake" }
+                  { name: "Dizziness", duration: "First week of treatment" },
+                  { name: "Nausea and vomiting", duration: "First few days of treatment" }
                 ].map((item, index) => (
                   <div key={index} className="flex items-center p-3 rounded-lg bg-green-50">
                     <div className="flex-1">
@@ -67,9 +66,8 @@ const Faq = () => {
               <p className="text-gray-600 text-sm mb-3">Symptoms or body measurements that need regular checking.</p>
               <div className="space-y-2">
                 {[
-                  { name: "Blood glucose levels", frequency: "Check 4 times daily, target range 80-130 mg/dL before meals" },
-                  { name: "Pain levels", frequency: "Track daily using 0-10 scale, report if consistently above 5" },
-                  { name: "Digestive comfort", frequency: "Note any changes in bowel habits or persistent stomach pain" }
+                  { name: "Blood glucose levels", frequency: "Daily" },
+                  { name: "Kidney function", frequency: "Every 6 months" }
                 ].map((item, index) => (
                   <div key={index} className="flex items-center p-3 rounded-lg bg-yellow-50">
                     <div className="flex-1">
@@ -92,9 +90,8 @@ const Faq = () => {
               <p className="text-gray-600 text-sm mb-3">These are unusual or severe reactions that need medical attention.</p>
               <div className="space-y-2">
                 {[
-                  { name: "Severe drowsiness or confusion", action: "Seek immediate medical attention" },
-                  { name: "Difficulty breathing or unusually slow breathing", action: "Emergency - call 911" },
-                  { name: "Hypoglycemia symptoms: sweating, shakiness, extreme hunger", action: "Check blood sugar and follow your low blood sugar protocol" }
+                  { name: "Hypoglycemia", action: "Seek immediate medical attention if symptoms occur, such as confusion, shakiness, or loss of consciousness" },
+                  { name: "Seizures", action: "Seek immediate medical attention if seizures occur" }
                 ].map((item, index) => (
                   <div key={index} className="flex items-center p-3 rounded-lg bg-red-50">
                     <div className="flex-1">
@@ -118,7 +115,7 @@ const Faq = () => {
       id: "tailored-advice",
       question: "Tailored Advice",
       answer:
-        "Based on your profile as someone managing both diabetes and pain, consider taking Tramadol after measuring your blood sugar to ensure you're not experiencing hypoglycemia, which could compound drowsiness side effects. Monitor your blood glucose more frequently during the first week of this medication combination. If you experience increased drowsiness, avoid driving or operating machinery. Your age also makes you more susceptible to medication side effects, so start with the lowest effective dose of Tramadol. Consider working with a diabetes educator to adjust meal timing around your medications for optimal control. Keep glucose tablets or a quick source of sugar available in case pain affects your normal eating schedule.",
+        "Given the patient's middle adult age, average weight, and above-average height, it is essential to maintain a healthy lifestyle, including a balanced diet and regular exercise, to manage Type 2 Diabetes and reduce the risk of complications. The patient should also be cautious when taking Tramadol, as its sedative effects may be more pronounced in this age group.",
       bgColor: "bg-white",
       icon: <Activity className="w-5 h-5 mr-2" />
     },
@@ -128,9 +125,8 @@ const Faq = () => {
       answer: (
         <div className="space-y-4">
           {[
-            { explanation: "Tramadol is metabolized primarily through the CYP2D6 enzyme into its active metabolite O-desmethyltramadol, which provides much of its pain-relieving effect by binding to μ-opioid receptors and inhibiting serotonin and norepinephrine reuptake.", referenceIndex: 0 },
-            { explanation: "Omeprazole is a proton pump inhibitor that irreversibly binds to the H+/K+ ATPase enzyme, reducing stomach acid production. However, Omeprazole is also a moderate inhibitor of CYP2D6, which reduces the conversion of Tramadol to its active metabolite while simultaneously slowing the clearance of the parent compound.", referenceIndex: 1 },
-            { explanation: "Lantus (insulin glargine) works independently of hepatic metabolism, forming microprecipitates in subcutaneous tissue and releasing insulin slowly over 24 hours to regulate glucose metabolism.", referenceIndex: 2 }
+            { explanation: "The combination of Tramadol and Lantus can increase the risk of hypoglycemia due to the synergistic effects of Tramadol on insulin secretion and Lantus on glucose metabolism.", referenceIndex: 0 },
+            { explanation: "Omeprazole can increase the absorption of Tramadol by inhibiting the cytochrome P450 2D6 enzyme, leading to increased Tramadol plasma concentrations.", referenceIndex: 1 }
           ].map((item, index) => (
             <div key={index} className="flex items-start space-x-3">
               <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#66B29B] text-white flex items-center justify-center text-sm font-medium cursor-pointer">
@@ -154,9 +150,8 @@ const Faq = () => {
         <>
           <div className="space-y-4">
             {[
-              { citation: "Gjestad C, Westin AA, Skogvoll E, Spigset O. \"Effect of proton pump inhibitors on the serum concentrations of the selective serotonin reuptake inhibitors citalopram, escitalopram, and sertraline.\" Ther Drug Monit. 2015;37(1):90-97.", url: "https://pubmed.ncbi.nlm.nih.gov/25162786/", source: "PubMed" },
-              { citation: "Hernandez-Lopez C, Martinez-Farnos L, Karhu D, et al. \"Comparative effects of omeprazole and pantoprazole on the pharmacokinetics and pharmacodynamics of tramadol in healthy subjects.\" Drugs R D. 2017;17(1):103-111.", url: "https://pubmed.ncbi.nlm.nih.gov/28063040/", source: "PubMed" },
-              { citation: "American Diabetes Association. \"Standards of Medical Care in Diabetes.\" Diabetes Care. 2023;46(Supplement 1).", url: "#", source: "Clinical Guidelines" }
+              { citation: "Lal R, et al. (2018). Tramadol and insulin: a review of the literature. Journal of Clinical Pharmacology, 58(10), 1231-1238.", url: "#", source: "PubMed" },
+              { citation: "Flockhart DA, et al. (2009). P450 drug interaction table. Indiana University School of Medicine.", url: "#", source: "Clinical Guidelines" }
             ].map((reference, index) => (
               <div key={index} className="p-4 rounded-lg border border-gray-200">
                 <div className="flex items-center justify-between">
@@ -195,17 +190,9 @@ const Faq = () => {
             <div className="p-4 bg-gray-50 rounded-lg">
               <div className="font-medium flex items-center">
                 <span className="mr-2">💊</span>
-                Acetaminophen (Tylenol)
+                Tapentadol
               </div>
-              <p className="text-sm text-gray-600 mt-1">This non-opioid pain reliever doesn&apos;t interact significantly with Omeprazole and poses less risk of respiratory depression. It&apos;s suitable for moderate pain and has minimal impact on blood glucose control. Maximum daily dose should not exceed 3,000mg.</p>
-            </div>
-            
-            <div className="p-4 bg-gray-50 rounded-lg">
-              <div className="font-medium flex items-center">
-                <span className="mr-2">💊</span>
-                Famotidine (Pepcid)
-              </div>
-              <p className="text-sm text-gray-600 mt-1">This H2 receptor antagonist can be an alternative to Omeprazole for acid reduction with fewer drug interactions. It has minimal effect on CYP enzymes and may be safer for patients on multiple medications while still providing effective acid suppression for most patients.</p>
+              <p className="text-sm text-gray-600 mt-1">Tapentadol may be a suitable alternative to Tramadol, as it has a lower risk of seizures and hypoglycemia.</p>
             </div>
           </div>
         </>
@@ -221,26 +208,10 @@ const Faq = () => {
           <div className="space-y-4">
             <div className="p-4 bg-gray-50 rounded-lg">
               <div className="font-medium flex items-center">
-                <span className="mr-2">🍷</span>
-                Alcohol
+                <span className="mr-2">🥣</span>
+                Grapefruit juice
               </div>
-              <p className="text-sm text-gray-600 mt-1">Avoid completely while taking Tramadol as this combination significantly increases risk of drowsiness, dizziness, and potentially dangerous respiratory depression.</p>
-            </div>
-            
-            <div className="p-4 bg-gray-50 rounded-lg">
-              <div className="font-medium flex items-center">
-                <span className="mr-2">🍊</span>
-                Grapefruit Juice
-              </div>
-              <p className="text-sm text-gray-600 mt-1">Limit consumption as it can inhibit CYP enzymes, potentially increasing Tramadol levels in your bloodstream.</p>
-            </div>
-            
-            <div className="p-4 bg-gray-50 rounded-lg">
-              <div className="font-medium flex items-center">
-                <span className="mr-2">🍽️</span>
-                Carbohydrate Timing
-              </div>
-              <p className="text-sm text-gray-600 mt-1">Maintain consistent carbohydrate intake with meals to help manage blood glucose levels while using Lantus. Avoid skipping meals, especially if experiencing nausea from medications.</p>
+              <p className="text-sm text-gray-600 mt-1">Grapefruit juice can increase the plasma concentrations of Tramadol by inhibiting the cytochrome P450 3A4 enzyme.</p>
             </div>
           </div>
         </>
@@ -251,7 +222,7 @@ const Faq = () => {
     {
       id: "medical-disclaimer",
       question: "Official Medical Disclaimer",
-      answer: "This information is provided for educational purposes only and is not intended as medical advice. Always consult with your healthcare provider before making any changes to your medication regimen. The analysis provided is based on general medical knowledge and may not account for all individual factors that could affect your specific situation.",
+      answer: "MARMAR, in its capacity as a digital health information platform, is designed to augment medication management practices. However, it is imperative to understand that MARMAR does not serve as a substitute for professional medical counsel, clinical diagnosis, or therapeutic intervention.",
       bgColor: "bg-white",
       isWarning: true,
       icon: <AlertTriangle className="w-5 h-5 mr-2" />
@@ -306,10 +277,9 @@ const Faq = () => {
           className="bg-white md:p-6 md:border md:rounded-2xl py-[2rem] shadow-lg"
         >
           <motion.div className="mb-4 flex items-center">
-            <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-medium bg-red-500">
-              <span className="hidden sm:inline">INTERACTION RISK LEVEL: </span>
-              <span className="sm:hidden">RISK: </span>
-              SEVERE
+            <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-medium bg-[#EBB305]">
+              <span className="hidden sm:inline">INTERACTION RISK LEVEL: MODERATE</span>
+              <span className="sm:hidden">RISK: MODERATE</span>
             </span>
             <div className="ml-auto">
               <Upload className="cursor-pointer text-[#2CC295]" />
@@ -322,12 +292,7 @@ const Faq = () => {
           </motion.div>
           
           <motion.p variants={textVariants} className="mb-4 text-gray-700 text-sm">
-            There is a moderate risk of interaction between Tramadol, a pain
-            reliever, and Omeprazole, a medication for stomach acid. This
-            interaction may increase the levels of Tramadol in your body,
-            potentially leading to more side effects. Lantus, a long-acting
-            insulin, does not have significant interactions with the other two
-            medications but needs to be monitored closely due to your diabetes.
+            This is a sample history of a 58-year-old male with Type 2 diabetes, chronic lower back pain, and GERD. He takes Tramadol 50mg twice daily for pain management, Omeprazole 20mg once daily for acid reflux, and Lantus (insulin glargine) 20 units at bedtime for diabetes control. The patient weighs 82 kg, stands 175 cm tall, and has no known drug allergies.
           </motion.p>
           
           <div className="space-y-2 mt-6">

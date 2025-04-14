@@ -92,7 +92,7 @@ const EmpoweringSection = () => {
         >
           <motion.div variants={textVariants}>
             <Button className="bg-[#2CC295]  rounded-[27px] h-[32px] px-8 font-bold text-[#E8F4F0] text-[10px] md:text-[14px]">
-            Reduce Costs, Improve Outcomes for Your Members
+            REDUCE COSTS, IMPROVE OUTCOMES FOR YOUR MEMBERS
             </Button>
           </motion.div>
 

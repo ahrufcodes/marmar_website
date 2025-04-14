@@ -12,7 +12,7 @@ const Insurancecompanies = () => {
 
       <div className="max-w-lg space-y-6 text-left text-sm text-[#E8F4F0]">
         <Button className="bg-[#2CC295]  border border-white transition-all duration-300 rounded-[27px] px-6 h-[29px] text-sm font-medium">
-          For Insurance Companies
+          FOR INSURANCE COMPANIES
         </Button>
         <h1 className="text-sm md:text-[18px] font-medium w-full md:w-[580px] leading-[1.8rem] ">
           For every 100 members using MARMAR, insurers can potentially

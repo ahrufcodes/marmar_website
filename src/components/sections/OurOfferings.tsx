@@ -56,7 +56,7 @@ const OurOfferings = () => {
   };
 
   return (
-    <section ref={ref} className="container mx-auto py-16 px-4 sm:px-8 max-w-[1400px] h-full">
+    <section ref={ref} id="our-offering-section" className="container mx-auto py-16 px-4 sm:px-8 max-w-[1400px] h-full">
       <div className="text-left">
         <motion.div
           variants={buttonVariants}
@@ -101,7 +101,7 @@ const OurOfferings = () => {
           {
             title: "Our App",
             description:
-              "Our intuitive app combines AI-powered safety checks with easy-to-use features, ensuring you&apos;re always just a tap away from medication insights you can trust.",
+              "Our intuitive app combines AI-powered safety checks with easy-to-use features, ensuring you are always just a tap away from medication insights you can trust.",
             images: [
               {
                 src: "/assets/ourapp.svg",
@@ -126,7 +126,7 @@ const OurOfferings = () => {
             imageClass: "w-full max-w-[445px] h-auto object-contain",
             fullWidth: true,
             showButton: true,
-            buttonText: "Let's help talk to your workplace about MARMAR ",
+            buttonText: "Let us help talk to your workplace about MARMAR ",
             buttonClass: "bg-[#E3555A] text-white rounded-sm shadow-md font-medium ",
             icon: true,
           },
@@ -221,7 +221,7 @@ const OurOfferings = () => {
   className="mt-6 lg:hidden w-full flex justify-start "
 >
   <Button className="bg-[#E3555A] text-white rounded-sm shadow-md font-medium text-[12px] flex items-center space-x-1 px-2 py-2">
-    <span>Let&apos;s help talk to your workplace about MARMAR</span>
+    <span>Let us help talk to your workplace about MARMAR</span>
     <ChevronRight className="w-4 h-4" />
   </Button>
 </motion.div>

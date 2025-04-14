@@ -24,7 +24,7 @@ const Hiring = () => {
       number: "03",
       question: "How accurate is the AI analysis?",
       answer:
-        "Our AI system is highly accurate and regularly updated with the latest medical research. However, it's designed to be a supplementary tool and should not replace professional medical advice. Always consult with your healthcare provider about your medications.",
+        "Our AI system is highly accurate and regularly updated with the latest medical research. However, it is designed to be a supplementary tool and should not replace professional medical advice. Always consult with your healthcare provider about your medications.",
     },
     {
       number: "04",
@@ -36,14 +36,14 @@ const Hiring = () => {
       number: "05",
       question: "How often should I review my medications?",
       answer:
-        "We recommend reviewing your medications whenever there's a change in your prescription or at least every 3-6 months. Regular reviews help ensure your medication regime remains safe and effective as your health needs change.",
+        "We recommend reviewing your medications whenever there is a change in your prescription or at least every 3-6 months. Regular reviews help ensure your medication regime remains safe and effective as your health needs change.",
     },
   ];
   return (
     <>
       <div className="mt-[8rem]   flex flex-col justify-center items-center mx-auto max-w-[900px] text-center">
         <h2 className="text-[#66B29B] text-[0.9rem] text-center ">
-          We&apos;re hiring!
+          We are hiring!
         </h2>
         <h1 className="text-[#131313]  font-semibold  text-[1.3rem] md:text-[2rem]">
           Meet our team

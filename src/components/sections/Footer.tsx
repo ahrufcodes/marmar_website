@@ -14,7 +14,7 @@ const Footer = () => {
             Take Control of your health Today!
           </h1>
           <h3 className="text-white text-[0.875rem] md:text-[1rem] px-2">
-            Because Understanding your medications shouldn&apos;t be complicated.
+            Because Understanding your medications should not be complicated.
           </h3>
           <a href="https://app.marmar.life/" target="_blank">
             <Button className="bg-white text-[#000000] mt-2">Get Started Now</Button>
@@ -54,7 +54,7 @@ const Footer = () => {
                 <div className="flex flex-col gap-3">
                   <span className="text-xs text-[#131313] font-medium mb-1">Research</span>
                   <a href="#" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">DrugFormDB</a>
-                  <a href="https://cohere.com/events/cohere-for-ai-Ahmad-Rufai-2025" target="_blank" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">Our Founder&apos;s Talk with Cohere For AI</a>
+                  <a href="https://cohere.com/events/cohere-for-ai-Ahmad-Rufai-2025" target="_blank" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">Our Founder's Talk with Cohere For AI</a>
                   <span className="text-xs text-[#667085] cursor-not-allowed opacity-75">Model</span>
                   <span className="text-xs text-[#667085] cursor-not-allowed opacity-75">Explainability</span>
                 </div>
@@ -75,7 +75,7 @@ const Footer = () => {
               <div className="hidden md:flex md:flex-col gap-3">
                 <span className="text-xs text-[#131313] font-medium mb-1">Research</span>
                 <a href="#" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">DrugFormDB</a>
-                <a href="https://cohere.com/events/cohere-for-ai-Ahmad-Rufai-2025" target="_blank" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">Our Founder&apos;s Talk with Cohere For AI</a>
+                <a href="https://cohere.com/events/cohere-for-ai-Ahmad-Rufai-2025" target="_blank" className="text-xs text-[#667085] hover:text-[#2CC295] transition-colors">Our Founder's Talk with Cohere For AI</a>
                 <span className="text-xs text-[#667085] cursor-not-allowed opacity-75">Model</span>
                 <span className="text-xs text-[#667085] cursor-not-allowed opacity-75">Explainability</span>
               </div>

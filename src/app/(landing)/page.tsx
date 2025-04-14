@@ -15,15 +15,17 @@ const page = () => {
       <Faq />
       <Testimonials />
  
-      <OurOfferings />
+      <section id="our-offering-section" data-section-target="our-offering-section">
+        <OurOfferings />
+      </section>
    
   
-        <section id="providers-section">
-          <EmpoweringSection />
-        </section>
-        <section id="insurance-section">
-          <Insurancecompanies />
-        </section>
+      <section id="providers-section" data-section-target="providers-section">
+        <EmpoweringSection />
+      </section>
+      <section id="insurance-section" data-section-target="insurance-section">
+        <Insurancecompanies />
+      </section>
  
       <Partners/>
 
