@@ -56,10 +56,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
           </button>
         )}
 
-        <h2 className={`mt-4 max-w-md ${highlightTitle
-          ? "text-[#5E5E5E] text-sm md:text-[16px] font-normal leading-6"
-          : "text-[#1C1C1C] text-sm md:text-2xl font-medium"
-          }`}>
+        <h2 className={`text-[#131313] font-medium text-2xl md:text-3xl ${titleClass}`}>
           {title}
         </h2>
 
